@@ -1,0 +1,34 @@
+<div class="blocklist margin-nav">
+    <include file="public/banner" />
+    <div class="container">
+        <include file="public/breadcrumb" />
+        <div class="content">
+            <include file="public/nav_tab" />
+            <include file="public/category_tags" />     
+            <div class="content-block row">
+                    <article:lists name="one" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="10">
+                        <div class="col-md-4 col-sm-6">
+                            <a href="{$one['link']}">
+                                <div class="block">
+                                    <div class="thumb">
+                                        <img src="{$one['thumb']?$one['thumb']:$default_thumb[0]['path']}">
+                                    </div>
+                                    <div class="title">
+                                        {$one['title']}
+                                    </div>
+                                    <div class="date">
+                                        {:substr($one['publish_time'], 0, 10)}
+                                    </div>
+                                    <div class="brief">
+                                        {:iconv_substr($one['summary'], 0, 40, "utf-8")}...
+                                    </div>
+                                </div>
+                            </a>
+                        </div>  
+                    </article:lists>
+            </div>
+            <div class="pagestring">{$pagestring}</div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

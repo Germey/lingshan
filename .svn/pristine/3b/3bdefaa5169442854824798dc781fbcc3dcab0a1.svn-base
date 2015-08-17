@@ -1,0 +1,15 @@
+<?php 
+	$default_banner = D('Banner')->getBannerByName('default_banner');
+	$rand = rand(0,count($default_banner)-1);
+?>
+
+<if condition="$category['banner']">
+    <div class="banner" style="background-image:url('{$category['banner']}')">
+    </div>
+<elseif condition="$default_banner"/>
+    <div class="banner" style="background-image:url('{$default_banner[$rand]['path']}')">
+    </div>
+<else />
+	<div class="banner" style="background-image:url('__IMG__/default_banner.jpg')">
+    </div>
+</if>

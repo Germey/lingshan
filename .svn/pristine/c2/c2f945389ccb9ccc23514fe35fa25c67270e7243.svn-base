@@ -1,0 +1,12 @@
+<div class="single margin-nav">
+    <include file="public/banner" />
+    <div class="container">
+        <include file="public/breadcrumb" />
+        <include file="public/nav_tab" />
+        <div class="content">
+            <div class="details">
+                {$category['content']}
+            </div>
+        </div>
+    </div>
+</div>

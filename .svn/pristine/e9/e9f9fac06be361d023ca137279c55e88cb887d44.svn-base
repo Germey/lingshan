@@ -1,0 +1,30 @@
+<div class="linelist margin-nav">
+    <include file="public/banner" />
+    <div class="container">
+        <include file="public/breadcrumb" />
+        <include file="public/nav_tab" />
+        <div class="content">
+            <div class="details">
+                <include file="public/category_tags" />
+                <div class="list-box">
+                    <ul class="simple">
+                        <article:lists name="one" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="20">
+                            <li>
+                                <a href="{$one['link']}">{$one['title']}</a>
+                                <if condition="$one['tags']">
+                                    <i title="标签" class="icon icon-tag"></i>
+                                    <foreach name="one['tags']" item="t">
+                                        <a style="color: #3a87ad" href="/category/{$one['category_id']}?stid={$t['tag_id']}">{$t['name']}</a>
+                                    </foreach>
+                                </if>
+                                <span class="pull-right muted"><small>{:substr($one['publish_time'],0,10)}</small></span>
+                            </li>
+                        </article:lists>
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="pagestring">{$pagestring}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1304 @@
+Index: article/detail.html
+===================================================================
+--- article/detail.html	(revision 1)
++++ article/detail.html	(working copy)
+@@ -2,7 +2,6 @@
+     <include file="public/banner" />
+     <div class="container">
+         <include file="public/breadcrumb" />
+-        <include file="public/nav_tab" />
+         <div class="content">
+             <div class="main-content">
+                 <div class="info-head text-center">
+@@ -11,19 +10,19 @@
+                 <div class="article-infos">
+                     <div class="article-info">
+                         <if condition="$info['source_name']">
+-                            <span><i title="文章来源" class="icon icon-bookmark"></i><a href="{$info['source_link']}" target="_blank">{$info['source_name']}</a></span>
++                            <span><i title="文章来源" class="glyphicon glyphicon-bookmark"></i><a href="{$info['source_link']}" target="_blank">{$info['source_name']}</a></span>
+                         </if>
+                     </div>
+                     <div class="article-info">
+-                        <if condition="$info['author_name']"><span class="muted"><i title="作者" class="icon icon-user"></i>{$info['author_name']}</span>
++                        <if condition="$info['author_name']"><span class="muted"><i title="作者" class="glyphicon glyphicon-user"></i>{$info['author_name']}</span>
+                         </if>
+                     </div>
+                     <div class="article-info">
+-                        <span class="muted"><i title="发布时间" class="icon icon-time"></i>{:substr($info['publish_time'],0,16)}</span>
++                        <span class="muted"><i title="发布时间" class="glyphicon glyphicon-time"></i>{:substr($info['publish_time'],0,16)}</span>
+                     </div>
+                     <div class="article-info pull-right">
+                         <if condition="$info['tags']">
+-                            <span><i title="标签" class="icon icon-tag"></i>
++                            <span><i title="标签" class="glyphicon glyphicon-tag"></i>
+                                 <foreach name="info['tags']" item="t">
+                                     <a href="/category/{$category['id']}?stid={$t['tag_id']}">{$t['name']}</a>&nbsp;&nbsp;
+                                 </foreach>
+@@ -52,7 +51,7 @@
+                 <h5 class="title">相关文章</h5>
+                 <ul class="simple">            
+                   <article:lists name="one" category="$category['id']" ispage="false" row="6">
+-                      <li><i title="列表" class="icon icon-minus"></i><a href="{$one['link']}">{:get_short($one['title'],40)}</a></li>
++                      <li><i title="列表" class="glyphicon glyphicon-minus"></i><a href="{$one['link']}">{:get_short($one['title'],40)}</a></li>
+                   </article:lists>
+                 </ul>
+             </div>
+Index: category/block_list.html
+===================================================================
+--- category/block_list.html	(revision 1)
++++ category/block_list.html	(working copy)
+@@ -2,27 +2,29 @@
+     <include file="public/banner" />
+     <div class="container">
+         <include file="public/breadcrumb" />
+-        <include file="public/nav_tab" />
+         <div class="content">
+-            <include file="public/category_tags" />      
+-            <div class="content-block">
++            <include file="public/nav_tab" />
++            <include file="public/category_tags" />     
++            <div class="content-block row">
+                     <article:lists name="one" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="10">
+-                        <a href="{$one['link']}">
+-                            <div class="block">
+-                                <div class="thumb">
+-                                    <img src="{$one['thumb']?$one['thumb']:$default_thumb[0]['path']}">
++                        <div class="col-md-4 col-sm-6">
++                            <a href="{$one['link']}">
++                                <div class="block">
++                                    <div class="thumb">
++                                        <img src="{$one['thumb']?$one['thumb']:$default_thumb[0]['path']}">
++                                    </div>
++                                    <div class="title">
++                                        {$one['title']}
++                                    </div>
++                                    <div class="date">
++                                        {:substr($one['publish_time'], 0, 10)}
++                                    </div>
++                                    <div class="brief">
++                                        {:iconv_substr($one['summary'], 0, 40, "utf-8")}...
++                                    </div>
+                                 </div>
+-                                <div class="title">
+-                                    {$one['title']}
+-                                </div>
+-                                <div class="date">
+-                                    {:substr($one['publish_time'], 0, 10)}
+-                                </div>
+-                                <div class="brief">
+-                                    {:iconv_substr($one['summary'], 0, 40, "utf-8")}...
+-                                </div>
+-                            </div>
+-                        </a>  
++                            </a>
++                        </div>  
+                     </article:lists>
+             </div>
+             <div class="pagestring">{$pagestring}</div>
+Index: category/list.html
+===================================================================
+--- category/list.html	(revision 1)
++++ category/list.html	(working copy)
+@@ -2,8 +2,8 @@
+     <include file="public/banner" />
+     <div class="container">
+         <include file="public/breadcrumb" />
+-        <include file="public/nav_tab" />
+         <div class="content">
++            <include file="public/nav_tab" />
+             <div class="details">
+                 <include file="public/category_tags" />
+                 <div class="list-box">
+@@ -12,9 +12,9 @@
+                             <li>
+                                 <a href="{$one['link']}">{$one['title']}</a>
+                                 <if condition="$one['tags']">
+-                                    <i title="标签" class="icon icon-tag"></i>
++                                    <i title="标签" class="glyphicon glyphicon-tag"></i>
+                                     <foreach name="one['tags']" item="t">
+-                                        <a style="color: #3a87ad" href="/category/{$one['category_id']}?stid={$t['tag_id']}">{$t['name']}</a>
++                                        <a href="/category/{$one['category_id']}?stid={$t['tag_id']}">{$t['name']}</a>
+                                     </foreach>
+                                 </if>
+                                 <span class="pull-right muted"><small>{:substr($one['publish_time'],0,10)}</small></span>
+Index: category/single.html
+===================================================================
+--- category/single.html	(revision 1)
++++ category/single.html	(working copy)
+@@ -2,8 +2,8 @@
+     <include file="public/banner" />
+     <div class="container">
+         <include file="public/breadcrumb" />
+-        <include file="public/nav_tab" />
+         <div class="content">
++            <include file="public/nav_tab" />
+             <div class="details">
+                 {$category['content']}
+             </div>
+Index: index/index.html
+===================================================================
+--- index/index.html	(revision 1)
++++ index/index.html	(working copy)
+@@ -7,13 +7,12 @@
+     <div id="carousel" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+             <foreach name="carousel" item="one" key="num">
+-                <li data-target="#ad-carousel" data-slide-to="{$num}" <?php if ($num == 0) echo 'class="active"' ?>></li>
++                <li data-target="#carousel" data-slide-to="{$num}" <?php if ($num == 0) echo 'class="active"' ?>></li>
+             </foreach>
+         </ol>
+         <div class="carousel-inner">
+             <foreach name="carousel" item="one" key="num">
+-               <div class="item <?php if ($num == 0) echo 'active'?>">
+-                    <img src="{$one['path']}" alt="{$one['name']}">
++               <div class="item <?php if ($num == 0) echo 'active'?>" style="background-image:url({:thumb($one['path'], 700, 300)})">
+                 </div>
+             </foreach>
+         </div>
+@@ -27,7 +26,7 @@
+     <div class="about">
+         <div class="container">
+             <?php 
+-                $about = D("Category")->getById(42);
++                $about = D("Category")->getById(257);
+             ?>
+             <div class="title">
+                 <span class="eng">{$about['subtitle']}</span><span class="mid">|</span><span class="zh">{$about['title']}</span>
+@@ -63,7 +62,6 @@
+                 <div class="summary">
+                     <foreach name="cats" item="cat">
+                         <?php
+-                            $default_thumb = D('Banner')->getBannerByName('default_thumb'); 
+                             $pages = D("Content")->getPagesByTypeId($cat,1,3);
+                         ?>
+                         <div id="dg-container" class="wrap dg-container" name="{$cat['id']}">
+@@ -74,10 +72,10 @@
+                                             {$page['title']}
+                                         </div>
+                                         <div class="thumb">
+-                                            <img src="{$page['thumb']?$page['thumb']:$default_thumb[0]['path']}">
++                                            <img src="{:thumb($page['thumb'], 300, 0)}">
+                                         </div>
+                                         <div class="brief">
+-                                            {:iconv_substr($page['summary'], 0, 100, "utf-8")}...
++                                            {:get_short($page['summary'], 140)}
+                                         </div>
+                                         <div class="more">
+                                             <a href="{$page['link']}">了解更多</a>
+@@ -103,42 +101,50 @@
+     </script>
+     <!-- donate start -->
+     <div class="donate">
+-        <div class="content">
+-            <div class="item disclosure">
+-                <div class="title">
+-                    <span class="eng">Disclosure</span><span class="mid">|</span><span class="zh">信息公开</span>
++        <div class="container content">
++            <div class="row">
++                <div class="col-md-4">
++                    <div class="item disclosure">
++                        <div class="title">
++                            <span class="eng">Disclosure</span><span class="mid">|</span><span class="zh">信息公开</span>
++                        </div>
++                        <?php 
++                            $disclosure = D('Content')->getPageById('20121165');
++                        ?>
++                        <div class="details">
++                            {$disclosure['content']}
++                        </div>
++                    </div>
+                 </div>
+-                <?php 
+-                    $disclosure = D('Content')->getPageById('20121165');
+-                ?>
+-                <div class="details">
+-                    {$disclosure['content']}
++                <div class="col-md-4">
++                    <div class="item donate-list">
++                        <div class="title">
++                            <span class="eng">Donation list</span><span class="mid">|</span><span class="zh">捐赠目录</span>
++                        </div>
++                        <?php 
++                            $donation = D('Content')->getPageById('20121166');
++                        ?>
++                        <div class="details">
++                            {$donation['content']}
++                        </div>
++                    </div>
+                 </div>
+-            </div>
+-            <div class="item donate-list">
+-                <div class="title">
+-                    <span class="eng">Donation list</span><span class="mid">|</span><span class="zh">捐赠目录</span>
++                <div class="col-md-4">
++                    <div class="item support">
++                        <div class="title">
++                            <span class="eng">Support us</span><span class="mid">|</span><span class="zh">支持灵山</span>   
++                        </div>
++                        <div class="details">
++                            <div class="one">
++                                <img src="__IMG__/donate-icon1.png"><a class="btn" href="">我要捐赠</a>
++                            </div>
++                            <div class="one">
++                                <img src="__IMG__/donate-icon2.png"><a class="btn" href="">成为志愿者</a>
++                            </div>
++                        </div>             
++                    </div>
+                 </div>
+-                <?php 
+-                    $donation = D('Content')->getPageById('20121166');
+-                ?>
+-                <div class="details">
+-                    {$donation['content']}
+-                </div>
+             </div>
+-            <div class="item support">
+-                <div class="title">
+-                    <span class="eng">Support us</span><span class="mid">|</span><span class="zh">支持灵山</span>   
+-                </div>
+-                <div class="details">
+-                    <div class="one">
+-                        <img src="__IMG__/donate-icon1.png"><a class="btn" href="">我要捐赠</a>
+-                    </div>
+-                    <div class="one">
+-                        <img src="__IMG__/donate-icon2.png"><a class="btn" href="">成为志愿者</a>
+-                    </div>
+-                </div>             
+-            </div>
+         </div>
+     </div>
+     <!-- donate end -->
+@@ -154,22 +160,24 @@
+             <div class="title">
+                 <span class="eng">{$news['subtitle']}</span><span class="mid">|</span><span class="zh">{$news['title']}</span>
+             </div>
+-            <div class="content-block">
++            <div class="content-block row">
+                 <foreach name="pages" item="page">
+                     <a href="{$page['link']}">
+-                        <div class="block">
+-                            <div class="thumb">
+-                                <img src="{$page['thumb']?$page['thumb']:$default_thumb[0]['path']}">
++                        <div class="col-sm-4">
++                            <div class="block">
++                                <div class="thumb">
++                                    <img src="{:thumb($page['thumb'], 300 , 0)}">
++                                </div>
++                                <div class="title">
++                                    {$page['title']}
++                                </div>
++                                <div class="date">
++                                    {:substr($page['publish_time'], 0, 10)}
++                                </div>
++                                <div class="brief">
++                                    {:get_short($page['summary'], 60)}
++                                </div>
+                             </div>
+-                            <div class="title">
+-                                {$page['title']}
+-                            </div>
+-                            <div class="date">
+-                                {:substr($page['publish_time'], 0, 10)}
+-                            </div>
+-                            <div class="brief">
+-                                {:iconv_substr($page['summary'], 0, 40, "utf-8")}...
+-                            </div>
+                         </div>
+                     </a>
+                 </foreach>
+@@ -190,7 +198,7 @@
+             </form>
+         </div>
+         <div class="download">
+-            <a href=""><input type="button" class="btn" name="submit" value="下载电子期刊|Download"></a>
++            <a href=""><input type="button" class="btn" name="submit" value="下载电子期刊 | Download"></a>
+         </div>
+     </div>
+     <!-- subscribe end -->
+Index: public/banner.html
+===================================================================
+--- public/banner.html	(revision 1)
++++ public/banner.html	(working copy)
+@@ -2,12 +2,14 @@
+ 	$default_banner = D('Banner')->getBannerByName('default_banner');
+ 	$rand = rand(0,count($default_banner)-1);
+ ?>
+-
+ <if condition="$category['banner']">
+-    <div class="banner" style="background-image:url('{$category['banner']}')">
++    <div class="banner" style="background-image:url('{:thumb($category['banner'],500, 0)}')">
+     </div>
++<elseif condition="$category['parent']['thumb']"/>
++    <div class="banner" style="background-image:url('{:thumb($category['parent']['thumb'], 500, 0)}')">
++    </div>
+ <elseif condition="$default_banner"/>
+-    <div class="banner" style="background-image:url('{$default_banner[$rand]['path']}')">
++    <div class="banner" style="background-image:url('{:thumb($default_banner[$rand]['path'], 500 ,0)}')">
+     </div>
+ <else />
+ 	<div class="banner" style="background-image:url('__IMG__/default_banner.jpg')">
+Index: public/breadcrumb.html
+===================================================================
+--- public/breadcrumb.html	(revision 1)
++++ public/breadcrumb.html	(working copy)
+@@ -12,12 +12,12 @@
+ ?>
+ 
+ <ul class="breadcrumb">
+-    <li><a href="/">首页</a><span class="divider">/</span></li>
++    <li><a href="/">首页</a></li>
+     <foreach name="bread" item="one" key = 'k'>
+         <if condition= "$k eq $br_count-1">
+             <li class="active">{$one['title']}</li>
+         <else/>
+-            <li><a href="{$one['link']}">{$one['title']}</a><span class="divider">/</span></li>
++            <li><a href="{$one['link']}">{$one['title']}</a></li>
+         </if>
+     </foreach>
+ </ul>
+\ No newline at end of file
+Index: public/header.html
+===================================================================
+--- public/header.html	(revision 1)
++++ public/header.html	(working copy)
+@@ -9,7 +9,7 @@
+             </div>
+         </div>
+         <form class="search" action="/search/index">
+-            <div class="input"><input name="skey" id="search"  class="span6" type="text" value="{$skey}" placeholder="搜索资源"></div>
++            <div class="input"><input name="skey" id="search"  class="span6" type="text" value="{$skey}"></div>
+             <div class="bt"><input type="image" class="sicon" title="搜索" alt="搜索" src="__IMG__/search.png"></div>
+             <div class="clear"></div>
+         </form>
+Index: public/html_header.html
+===================================================================
+--- public/html_header.html	(revision 1)
++++ public/html_header.html	(working copy)
+@@ -30,7 +30,7 @@
+ 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <link rel="shortcut icon" href="__IMG__/favicon.ico" />
+-<link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet">
++<link href="__STATIC__/bootstrap3/css/bootstrap.css" rel="stylesheet">
+ <link href="__CSS__/style.css" rel="stylesheet">
+ <link href="__CSS__/gallery.css" rel="stylesheet">
+ <load file="__JS__/jquery.js" />
+Index: styles/css/gallery.css
+===================================================================
+--- styles/css/gallery.css	(revision 1)
++++ styles/css/gallery.css	(working copy)
+@@ -88,7 +88,7 @@
+ }
+ .dg-container{
+ 	width: 100%;
+-	height: 540px;
++	height: 570px;
+ 	position: relative;
+ }
+ .dg-wrapper{
+Index: styles/css/style.css
+===================================================================
+--- styles/css/style.css	(revision 1)
++++ styles/css/style.css	(working copy)
+@@ -5,7 +5,7 @@
+   position: absolute;
+   bottom: 15px;
+   top: inherit;
+-  right: 50%;
++  width: inherit;
+   z-index: 5;
+   margin: 0;
+   list-style: none;
+@@ -13,11 +13,9 @@
+ .carousel .carousel-inner .item {
+   width: 100%;
+   height: 500px;
++  background-size: cover;
++  background-position-x: center;
+ }
+-.carousel img {
+-  min-height: 500px;
+-  width: 100%;
+-}
+ .carousel .carousel-control {
+   margin-top: 0px;
+   border: none;
+@@ -25,15 +23,24 @@
+   font-family: "futuraicg";
+   background: none;
+ }
++.carousel a {
++  text-align: center;
++  width: 50px;
++  height: 50px;
++  position: absolute;
++  top: 48%;
++  font-size: 35px;
++}
+ .top {
+   position: relative;
+   width: 100%;
+   z-index: 10;
+-  height: 74px;
+-  background-color: rgba(255, 255, 255, 0.5);
++  height: 73px;
++  background-color: rgba(255, 255, 255, 0.85);
+ }
+ .top .container {
+   overflow: hidden;
++  min-width: 1000px;
+ }
+ .top .container .logo {
+   float: left;
+@@ -51,8 +58,11 @@
+ .top .container .top_nav ul.nav {
+   margin-bottom: 0px;
+ }
++.top .container .top_nav ul.nav > li {
++  margin-left: 0px;
++}
+ .top .container .top_nav ul.nav > li > a {
+-  padding: 30px 20px;
++  padding: 27px 20px;
+   margin: 0;
+ }
+ .top .container .top_nav ul.nav > li:hover > ul.dropdown-menu {
+@@ -72,6 +82,7 @@
+   background-color: #008000;
+   padding: 10px 10px;
+   background-image: none;
++  color: #ffffff;
+   margin: 0;
+ }
+ .top .container .top_nav ul.nav ul.dropdown-menu li a:hover {
+@@ -79,12 +90,14 @@
+ }
+ .top .container .top_nav ul.nav > li:hover > a {
+   background-color: #008000;
++  color: #ffffff;
+ }
+ .top .container .top_nav ul.nav > li.active a {
+   background-color: #008000;
++  color: #ffffff;
+ }
+ .top .container .top_nav ul.nav a {
+-  color: #ffffff;
++  color: #818080;
+   -moz-border-radius: 0px;
+   -webkit-border-radius: 0px;
+   -o-border-radius: 0px;
+@@ -94,7 +107,7 @@
+   float: left;
+   overflow: hidden;
+   width: 140px;
+-  padding: 20px 0;
++  padding: 25px 0;
+ }
+ .search .input {
+   float: left;
+@@ -101,14 +114,26 @@
+   width: 80%;
+ }
+ .search .input input {
+-  width: 109%;
++  width: 120%;
++  background: none;
++  border: 1px solid #B7B7B7;
++  padding: 3px;
++  font-size: 8px;
++  -moz-border-radius: 5px;
++  -webkit-border-radius: 5px;
++  -o-border-radius: 5px;
++  border-radius: 5px;
+ }
++.search .input input:focus {
++  border: 1px solid #B7B7B7;
++}
+ .search .bt {
+   float: right;
+   width: 20%;
+ }
+ .search .bt input {
+-  margin-top: 5px;
++  margin-top: 6px;
++  width: 15px;
+ }
+ .about {
+   padding: 50px 0;
+@@ -117,9 +142,6 @@
+ .about .content {
+   padding: 10px 0px;
+ }
+-.about .content p {
+-  text-indent: 30px;
+-}
+ .lingshan {
+   padding: 50px 0;
+   border-bottom: 1px solid #999999;
+@@ -151,7 +173,7 @@
+ }
+ .lingshan .content .summary .wrap .page {
+   width: 360px;
+-  height: 470px;
++  height: 490px;
+   float: left;
+   padding-top: 5px;
+   background-color: white;
+@@ -173,7 +195,7 @@
+ }
+ .lingshan .content .summary .wrap .page .brief {
+   padding: 10px 30px;
+-  text-indent: 20px;
++  text-indent: 30px;
+ }
+ .lingshan .content .summary .wrap .dg-center {
+   background-color: #008000;
+@@ -194,12 +216,6 @@
+   padding: 50px 0;
+   border-bottom: 1px solid #999999;
+ }
+-.content-block {
+-  display: flex;
+-  flex-direction: row;
+-  justify-content: space-around;
+-  align-items: stretch;
+-}
+ .content-block a {
+   color: #333333;
+ }
+@@ -206,7 +222,7 @@
+ .content-block a .block {
+   width: 280px;
+   background-color: #fefefe;
+-  margin: 10px 1px;
++  margin: 40px auto;
+   text-align: center;
+ }
+ .content-block a .block .thumb {
+@@ -224,14 +240,18 @@
+ }
+ .content-block a .block .title {
+   font-size: 14px;
++  font-weight: bold;
++  color: #555;
+   height: 45px;
+   text-align: left;
+ }
+ .content-block a .block .date {
+   text-align: right;
++  color: #666;
+ }
+ .content-block a .block .brief {
+   height: 80px;
++  color: #999;
+   text-indent: 20px;
+   text-align: left;
+ }
+@@ -240,23 +260,20 @@
+   border-bottom: 1px solid #999999;
+ }
+ .donate .content {
+-  width: 1000px;
+   margin: 0 auto;
+-  display: flex;
+-  flex-direction: row;
+-  justify-content: space-around;
+-  align-items: stretch;
+ }
+ .donate .content .item {
+   height: 300px;
+   width: 300px;
++  margin: 0 auto;
+   background-image: url("../images/wrap.png");
++  padding-top: 10px;
+ }
+ .donate .content .item .title {
+   margin-top: 30px;
+ }
+ .donate .content .disclosure .details {
+-  padding: 30px;
++  padding: 20px;
+   text-align: center;
+ }
+ .donate .content .disclosure .details strong {
+@@ -264,10 +281,11 @@
+   color: #008000;
+ }
+ .donate .content .disclosure .details p {
+-  margin: 20px 0;
++  margin: 5px 0;
+ }
+ .donate .content .donate-list .details {
+   padding: 10px 30px;
++  font-size: 13px;
+ }
+ .donate .content .support .details {
+   padding-top: 40px;
+@@ -288,6 +306,7 @@
+   color: #fefefe;
+   background-image: none;
+   text-shadow: none;
++  display: inline;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -o-border-radius: 10px;
+@@ -328,7 +347,7 @@
+   padding: 20px 0 0 0;
+ }
+ .extra .subscribe form {
+-  width: 280px;
++  width: 220px;
+   margin: 0 auto;
+ }
+ .extra .subscribe form input[type="text"] {
+@@ -355,6 +374,9 @@
+   -moz-border-bottom-right-radius: 0px;
+   -moz-border-top-right-radius: 0px;
+ }
++.extra .subscribe form input[type="button"] {
++  vertical-align: inherit;
++}
+ .extra .download {
+   width: 400px;
+   text-align: center;
+@@ -381,19 +403,15 @@
+ }
+ .navigation ul {
+   height: 32px;
+-  border-left: 1px solid #d7d7d7;
+   width: 100%;
+-  margin: 0;
++  border-bottom: 1px solid #008000;
++  padding-left: 0;
+ }
+ .navigation ul li {
+   height: 31px;
+   line-height: 31px;
+   float: left;
+-  border-top: 1px solid #008000;
+-  border-bottom: 1px solid #008000;
+-  border-left: none;
+-  margin-bottom: -1px;
+-  background: #008000;
++  background: #fff;
+   overflow: hidden;
+   position: relative;
+ }
+@@ -401,16 +419,15 @@
+   display: block;
+   padding: 0 20px;
+   outline: none;
+-  color: #fefefe;
++  color: #008000;
+   text-decoration: none;
+ }
+ .navigation ul li.active {
+-  background: #fff;
++  background: #008000;
+   border: 1px solid #008000;
+-  border-bottom: 1px solid #fff;
+ }
+ .navigation ul li.active a {
+-  color: #008000;
++  color: #fefefe;
+ }
+ .single,
+ .linelist,
+@@ -426,8 +443,9 @@
+ .search-res .banner {
+   width: 100%;
+   height: 400px;
++  background-repeat: no-repeat;
++  background-position-x: center;
+   background-size: cover;
+-  background-repeat: no-repeat;
+   margin-bottom: 30px;
+ }
+ .single .content,
+@@ -439,6 +457,30 @@
+   border: 1px solid #d7d7d7;
+   padding: 30px 40px;
+ }
++.single .content .details .list-box,
++.linelist .content .details .list-box,
++.article .content .details .list-box,
++.blocklist .content .details .list-box,
++.search-res .content .details .list-box {
++  margin-top: 20px;
++}
++.single .content .details .list-box .simple,
++.linelist .content .details .list-box .simple,
++.article .content .details .list-box .simple,
++.blocklist .content .details .list-box .simple,
++.search-res .content .details .list-box .simple {
++  padding-left: 10px;
++}
++.single .content form,
++.linelist .content form,
++.article .content form,
++.blocklist .content form,
++.search-res .content form {
++  margin: 20px 0 15px 0;
++}
++.single .details {
++  padding: 20px 0;
++}
+ .linelist .list-box ul {
+   list-style: none;
+   margin: 0;
+@@ -449,18 +491,16 @@
+ .linelist .list-box ul li a {
+   color: #008000;
+ }
++.linelist .list-box ul li i {
++  margin-left: 5px;
++}
+ .linelist .list-box .pull-right {
+   text-align: right;
+ }
+-.blocklist .content-block {
+-  overflow: hidden;
+-  display: block;
+-}
+ .blocklist .content-block .block {
+-  float: left;
+   border: 1px solid #E8E8E8;
+   width: 250px;
+-  margin: 17px;
++  margin: 17px auto;
+ }
+ .search-res .listfull {
+   background-color: #FFF;
+@@ -524,6 +564,9 @@
+   margin-top: 4px;
+   margin-right: 5px;
+ }
++.article a {
++  color: #008000;
++}
+ .breadcrumb a {
+   color: #008000;
+ }
+@@ -573,6 +616,9 @@
+   -o-border-radius: 10px;
+   border-radius: 10px;
+ }
++.pagestring {
++  text-align: right;
++}
+ .margin-nav {
+   margin-top: -74px;
+ }
+@@ -598,3 +644,71 @@
+   font-weight: normal;
+   font-style: normal;
+ }
++.topBarStyle .top .container {
++  width: 100%;
++}
++@media (min-width: 1367px) {
++  .carousel {
++    height: 500px;
++  }
++  .carousel img {
++    height: 500px !important;
++  }
++  .carousel .carousel-inner .item {
++    height: 500px;
++  }
++  .single .banner,
++  .linelist .banner,
++  .article .banner,
++  .blocklist .banner,
++  .search-res .banner {
++    height: 400px;
++  }
++}
++@media (max-width: 1366px) and (min-width: 900px) {
++  .carousel {
++    height: 400px;
++  }
++  .carousel img {
++    height: 400px !important;
++  }
++  .carousel .carousel-inner .item {
++    height: 400px;
++  }
++  .single .banner,
++  .linelist .banner,
++  .article .banner,
++  .blocklist .banner,
++  .search-res .banner {
++    height: 300px;
++  }
++}
++@media (max-width: 899px) {
++  .carousel {
++    height: 300px;
++  }
++  .carousel img {
++    height: 300px !important;
++  }
++  .carousel .carousel-inner .item {
++    height: 300px;
++  }
++  .single .banner,
++  .linelist .banner,
++  .article .banner,
++  .blocklist .banner,
++  .search-res .banner {
++    height: 260px;
++  }
++  .top .container {
++    width: 100%;
++  }
++}
++@media (max-width: 992px) and (min-width: 768px) {
++  .content-block a .block {
++    width: 230px;
++  }
++  .content-block a .block .thumb img {
++    height: 160px;
++  }
++}
+Index: styles/images/search.png
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: styles/less/style.less
+===================================================================
+--- styles/less/style.less	(revision 1)
++++ styles/less/style.less	(working copy)
+@@ -13,7 +13,7 @@
+ 		position: absolute;
+ 		bottom: 15px;
+ 		top: inherit;
+-		right: 50%;
++		width: inherit;
+ 		z-index: 5;
+ 		margin: 0;
+ 		list-style: none;
+@@ -21,11 +21,9 @@
+ 	.carousel-inner .item{
+ 		width: 100%;
+ 		height: @carousel-height;
++		background-size: cover;
++		background-position-x: center;
+ 	}
+-	img {
+-		min-height: @carousel-height;
+-		width: 100%;
+-	}
+ 	.carousel-control {
+ 		margin-top: 0px;
+ 		border:none;
+@@ -33,22 +31,32 @@
+ 		font-family: "futuraicg";
+ 		background: none;
+ 	}
++	a {
++		text-align: center;
++		width: 50px;
++		height: 50px;
++		position: absolute;
++		top: 48%;
++		font-size: 35px;
++	}
+ }
+ 
+ .top {
+ 	@active-color: green;
+ 	@hover-color: rgba(0, 128, 0, 0.8);
+-	@nav-a-padding: 30px 20px;
++	@nav-a-padding: 27px 20px;
+ 	@down-a-padding: 10px 10px;
+ 	@a-color: #FFF;
+-	@bg-color: rgba(255, 255, 255, 0.5);
++	@a-color-gray: #818080;
++	@bg-color: rgba(255, 255, 255, 0.85);
+ 	position: relative;
+ 	width: 100%;
+ 	z-index: 10;
+-	height: 74px;
++	height: 73px;
+ 	background-color: @bg-color;
+ 	.container {
+ 		overflow: hidden;
++		min-width: 1000px;
+ 		.logo{
+ 			float: left;
+ 			padding-top: 20px;
+@@ -63,6 +71,9 @@
+ 			width: 60%;
+ 			ul.nav {
+ 				margin-bottom: 0px;
++				& > li {
++					margin-left: 0px;
++				}
+ 				& > li > a {
+ 					padding: @nav-a-padding;
+ 					margin: 0;
+@@ -80,6 +91,7 @@
+ 						background-color: @active-color;
+ 						padding: @down-a-padding;
+ 						background-image: none;
++						color: @a-color;
+ 						margin: 0;
+ 					}
+ 					li a:hover {
+@@ -88,12 +100,14 @@
+ 				}
+ 				& > li:hover > a {
+ 					background-color: @active-color;
++					color: @a-color;
+ 				}
+ 				& > li.active a {
+ 					background-color: @active-color;
++					color: @a-color;
+ 				}
+ 				a {
+-					color: @a-color;
++					color: @a-color-gray;
+ 					.borderRadius;
+ 				}
+ 			}
+@@ -105,12 +119,20 @@
+ 	float: left;
+ 	overflow: hidden;
+ 	width: 140px;
+-	padding: 20px 0;
++	padding: 25px 0;
+ 	.input {
+ 		float: left;
+ 		width: 80%;
+ 		input {
+-			width: 109%;
++			width: 120%;
++			background: none;
++			border: 1px solid #B7B7B7;
++			padding: 3px;
++  			font-size: 8px;
++			.borderRadius(5px);
++			&:focus {
++				border: 1px solid #B7B7B7;
++			}
+ 		}
+ 	}
+ 	.bt {
+@@ -117,7 +139,8 @@
+ 		float: right;
+ 		width: 20%;
+ 		input {
+-			margin-top: 5px;
++			margin-top: 6px;
++			width: 15px;
+ 		}
+ 	}
+ 	
+@@ -128,9 +151,6 @@
+ 	border-bottom: 1px solid @theme-gray;
+ 	.content {
+ 		padding: 10px 0px;
+-		p {
+-			text-indent: 30px;
+-		}
+ 	}
+ }
+ 
+@@ -163,7 +183,7 @@
+ 				overflow: hidden;
+ 				.page {
+ 					width: 360px;
+-					height: 470px;
++					height: 490px;
+ 					text-align: center;
+ 					float: left;
+ 					padding-top: 5px;
+@@ -182,7 +202,7 @@
+ 					}
+ 					.brief {
+ 						padding: 10px 30px;
+-						text-indent: 20px;
++						text-indent: 30px;
+ 					}
+ 				}
+ 				.dg-center {
+@@ -211,10 +231,6 @@
+ 	border-bottom: 1px solid @theme-gray;
+ }
+ .content-block {
+-	display : flex;
+-	flex-direction : row;
+-	justify-content : space-around;
+-	align-items : stretch;
+ 	a {
+ 		color: @black-a;
+ 		.block {
+@@ -231,20 +247,24 @@
+ 			}
+ 			.title {
+ 				font-size: 14px;
++				font-weight: bold;
++				color: #555;
+ 				height: 45px;
+ 				text-align: left;
+ 			}
+ 			.date {
+ 				text-align: right;
++				color: #666;
+ 			}
+ 			.brief {
+ 				height: 80px;
++				color: #999;
+ 				text-indent: 20px;
+ 				text-align: left;
+ 			}
+ 			width: 280px;
+ 			background-color: @white-a;
+-			margin: 10px 1px;
++			margin: 40px auto;
+ 			text-align: center;
+ 		}
+ 	}
+@@ -253,22 +273,19 @@
+ 	padding: @block-padding;
+ 	border-bottom: 1px solid @theme-gray;
+ 	.content {
+-		width: 1000px;
+ 		margin: 0 auto;
+-		display : flex;
+-		flex-direction : row;
+-		justify-content : space-around;
+-		align-items : stretch;
+ 		.item {
+ 			height: 300px;
+ 			width: 300px;
++			margin: 0 auto;
+ 			background-image: url("../images/wrap.png");
++			padding-top: 10px;
+ 			.title {
+ 				margin-top: 30px;
+ 			}
+ 		}
+ 		.disclosure .details {
+-			padding: 30px;
++			padding: 20px;
+ 			text-align: center;
+ 			strong {
+ 				font-size: 40px;
+@@ -275,11 +292,12 @@
+ 				color: @theme-green;
+ 			}
+ 			p {
+-				margin: 20px 0;
++				margin: 5px 0;
+ 			}
+ 		}
+ 		.donate-list .details {
+ 			padding: 10px 30px;
++			font-size: 13px;
+ 		}
+ 		.support .details {
+ 			padding-top: 40px;
+@@ -298,6 +316,7 @@
+ 					color: @white-a;
+ 					background-image: none;
+ 					text-shadow: none;
++					display: inline;
+ 					.borderRadius(10px);
+ 				}
+ 			}
+@@ -307,7 +326,7 @@
+ }
+ .extra {
+ 	@width: 400px;
+-	@form-width: 280px;
++	@form-width: 220px;
+ 	@item-padding: 20px 0 0 0;
+ 	padding: @block-padding;
+ 	.msg {
+@@ -337,6 +356,9 @@
+ 				margin-right: -10px;
+ 				.leftRightRadius(10px,0px);
+ 			}
++			input[type="button"] {
++				vertical-align: inherit;
++			}
+ 			
+ 		}
+ 		
+@@ -358,18 +380,14 @@
+ 	@border-white: 1px solid #FFF;
+ 	ul {
+ 		height: 32px;
+-		border-left: @border;
+ 		width: 100%;
+-		margin: 0;
++		border-bottom: @border-green;
++		padding-left: 0;
+ 		li {
+ 			height: 31px;
+ 			line-height: 31px;
+ 			float: left;
+-			border-top: @border-green;
+-			border-bottom: @border-green;
+-			border-left: none;
+-			margin-bottom: -1px;
+-			background: @theme-green;
++			background: #fff;
+ 			overflow: hidden;
+ 			position: relative;
+ 			a {
+@@ -376,15 +394,14 @@
+ 				display: block;
+ 				padding: 0 20px;
+ 				outline: none;
+-				color: @white-a;
++				color: @theme-green;
+ 				text-decoration: none;
+ 			}
+ 			&.active {
+-				background: #fff;
++				background: @theme-green;
+ 				border: @border-green;
+-				border-bottom: 1px solid #fff;
+ 				a {
+-					color: @theme-green;
++					color: @white-a;
+ 				}
+ 			}
+ 		}
+@@ -395,8 +412,9 @@
+ 	.banner {
+ 		width: 100%;
+ 		height: 400px;
++		background-repeat: no-repeat;
++		background-position-x: center;
+ 		background-size: cover;
+-		background-repeat: no-repeat;
+ 		margin-bottom: 30px;
+ 	}
+ 	@border: 1px solid #D7D7D7;
+@@ -404,8 +422,24 @@
+ 		background-color: #FFF;
+ 		border: @border;
+ 		padding:30px 40px;
++		.details {
++			.list-box {
++				margin-top: 20px;
++				.simple {
++					padding-left: 10px;
++				}
++			}
++		}
++		form {
++			margin: 20px 0 15px 0; 
++		}
+ 	}
+ }
++.single {
++	.details {
++		padding: 20px 0;
++	}
++}
+ .linelist {
+ 	.list-box {
+ 		ul {
+@@ -416,6 +450,9 @@
+ 				a {
+ 					color: @theme-green;
+ 				}
++				i {
++					margin-left: 5px;
++				}
+ 			}
+ 		}
+ 		.pull-right {
+@@ -425,13 +462,10 @@
+ }
+ .blocklist {
+ 	.content-block {
+-		overflow: hidden;
+-		display: block;
+ 		.block {
+-			float: left;
+ 			border: 1px solid #E8E8E8;
+ 			width: 250px;
+-  			margin: 17px;
++  			margin: 17px auto;
+ 		}
+ 	}
+ }
+@@ -501,6 +535,9 @@
+ 		margin-top: 4px;
+ 		margin-right: 5px;
+ 	}
++	a {
++		color: @theme-green;
++	}
+ }
+ .breadcrumb {
+ 	a {
+@@ -550,6 +587,9 @@
+ 		.borderRadius(10px);
+ 	}
+ }
++.pagestring {
++	text-align: right;
++}
+ .margin-nav {
+ 	margin-top: -@nav-height;
+ }
+@@ -603,4 +643,51 @@
+ 	font-weight: normal;
+ 	font-style: normal;
+ 
++}
++
++.carouselStyle(@height:500px) {
++	.carousel {
++		height: @height;
++	}
++	.carousel img {
++		height: @height !important;
++	}
++	.carousel .carousel-inner .item {
++		height: @height;
++	}
++}
++.bannerStyle(@height:400px) {
++	.single .banner, .linelist .banner, .article .banner, .blocklist .banner, .search-res .banner {
++		height: @height;
++	}
++}
++.topBarStyle {
++	.top .container {
++		width: 100%;
++	}
++}
++
++@media (min-width: 1367px) { 
++	.carouselStyle(500px);
++	.bannerStyle(400px);
++}
++
++@media (max-width: 1366px) and (min-width: 900px) {
++	.carouselStyle(400px);
++	.bannerStyle(300px);
++}
++
++@media (max-width: 899px) {
++	.carouselStyle(300px);
++	.bannerStyle(260px);
++	.topBarStyle;
++}
++
++@media (max-width: 992px) and (min-width: 768px) {
++	.content-block a .block {
++		width: 230px;
++	}
++	.content-block a .block .thumb img {
++		height: 160px;
++	}
+ }
+\ No newline at end of file

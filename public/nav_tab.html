@@ -1,0 +1,15 @@
+<div class="navigation">
+    <?php
+        $subchildren = D('Category')->getChildren($category['id']);
+        if (!$subchildren) {
+            $subchildren = D('Category')->getChildren(D('Category')->getParentId($category['id']));
+        }
+    ?>
+    <if condition="$subchildren">
+        <ul class="list">
+            <foreach name="subchildren" item="one">
+                <li <?php if ($one['title'] == $category['title']) echo 'class="active"'?>><a href="{$one['link']}">{$one['title']}</a></li>
+            </foreach>
+        </ul>
+    </if>
+</div>

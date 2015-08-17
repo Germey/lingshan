@@ -1,0 +1,17 @@
+<include file="public:html_header" />
+
+<div class="top">
+    <div class="container">
+        <div class="logo"><a href="/"><img src="__IMG__/logo.png" alt="{:C('site_title')}"/></a></div>
+        <div class="top_nav">
+            <div class="list">
+                <category:menu level="2" />
+            </div>
+        </div>
+        <form class="search" action="/search/index">
+            <div class="input"><input name="skey" id="search"  class="span6" type="text" value="{$skey}" placeholder="搜索资源"></div>
+            <div class="bt"><input type="image" class="sicon" title="搜索" alt="搜索" src="__IMG__/search.png"></div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</div>
