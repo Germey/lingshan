@@ -129,15 +129,13 @@
 .dg-wrapper  div {
 	display: block;
 }
-.dg-container nav{
-	width: 1060px;
+.dg-container nav {
+	width: 100%;
 	position: absolute;
 	z-index: 1000;
 	bottom: 300px;
-	left: 50px;
-	margin-left: -29px;
 }
-.dg-container nav span{
+.dg-container nav span {
 	float: left;
 	cursor:pointer;
 	width: 40px;

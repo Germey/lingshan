@@ -69,13 +69,6 @@ hr {
   background: #f8f8f8;
   border: 1px solid #DDD;
 }
-.inner-container .row .col-md-9 {
-  width: 70%;
-  padding-right: 25px;
-}
-.inner-container .row .col-md-3 {
-  width: 30%;
-}
 .carousel {
   height: 500px;
 }
@@ -233,6 +226,11 @@ hr {
 .lingshan {
   padding: 50px 0;
   border-bottom: 1px solid #bfbfbf;
+}
+.lingshan .lingshan-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .lingshan .content .cat-nav {
   overflow: hidden;
@@ -787,6 +785,13 @@ p span {
   font-weight: normal;
   font-style: normal;
 }
+.projectStyle .dg-container nav {
+  width: 100px !important;
+  left: 15%;
+  right: 15%;
+  margin: 0 auto;
+  bottom: 0 !important;
+}
 .topBarStyle .top .container {
   width: 100%;
 }
@@ -857,6 +862,22 @@ p span {
   background-color: #FFF;
   padding: 15px;
 }
+.rightWightStyle-md .right-widget {
+  overflow: hidden;
+  width: 100%;
+}
+.rightWightStyle-md .right-widget .widget {
+  float: left;
+  width: 46%;
+  margin: 30px 2%;
+}
+.rightWightStyle-sm .right-widget {
+  width: 100%;
+}
+.rightWightStyle-sm .right-widget .widget {
+  width: 350px;
+  margin: 30px auto;
+}
 @media (min-width: 1367px) {
   .carousel {
     height: 500px;
@@ -875,8 +896,14 @@ p span {
     height: 400px;
     margin-bottom: 0;
   }
+  .inner-container .col-lg-9 {
+    width: 70%;
+  }
+  .inner-container .col-lg-3 {
+    width: 30%;
+  }
 }
-@media (max-width: 1366px) and (min-width: 900px) {
+@media (max-width: 1366px) and (min-width: 1200px) {
   .carousel {
     height: 400px;
   }
@@ -894,8 +921,83 @@ p span {
     height: 300px;
     margin-bottom: 0;
   }
+  .inner-container .col-lg-9 {
+    width: 70%;
+  }
+  .inner-container .col-lg-3 {
+    width: 30%;
+  }
 }
-@media (max-width: 899px) {
+@media (max-width: 1199px) and (min-width: 992px) {
+  .carousel {
+    height: 400px;
+  }
+  .carousel img {
+    height: 400px !important;
+  }
+  .carousel .carousel-inner .item {
+    height: 400px;
+  }
+  .single .banner,
+  .linelist .banner,
+  .article .banner,
+  .blocklist .banner,
+  .search-res .banner .attachment .banner {
+    height: 300px;
+    margin-bottom: 0;
+  }
+  .right-widget {
+    overflow: hidden;
+    width: 100%;
+  }
+  .right-widget .widget {
+    float: left;
+    width: 46%;
+    margin: 30px 2%;
+  }
+}
+@media (max-width: 991px) and (min-width: 900px) {
+  .carousel {
+    height: 400px;
+  }
+  .carousel img {
+    height: 400px !important;
+  }
+  .carousel .carousel-inner .item {
+    height: 400px;
+  }
+  .single .banner,
+  .linelist .banner,
+  .article .banner,
+  .blocklist .banner,
+  .search-res .banner .attachment .banner {
+    height: 300px;
+    margin-bottom: 0;
+  }
+  .right-widget {
+    overflow: hidden;
+    width: 100%;
+  }
+  .right-widget .widget {
+    float: left;
+    width: 46%;
+    margin: 30px 2%;
+  }
+  .dg-container nav {
+    width: 100px !important;
+    left: 15%;
+    right: 15%;
+    margin: 0 auto;
+    bottom: 0 !important;
+  }
+  .content-block a .block {
+    width: 230px;
+  }
+  .content-block a .block .thumb img {
+    height: 160px;
+  }
+}
+@media (max-width: 899px) and (min-width: 768px) {
   .carousel {
     height: 300px;
   }
@@ -916,12 +1018,62 @@ p span {
   .top .container {
     width: 100%;
   }
-}
-@media (max-width: 992px) and (min-width: 768px) {
+  .right-widget {
+    overflow: hidden;
+    width: 100%;
+  }
+  .right-widget .widget {
+    float: left;
+    width: 46%;
+    margin: 30px 2%;
+  }
+  .dg-container nav {
+    width: 100px !important;
+    left: 15%;
+    right: 15%;
+    margin: 0 auto;
+    bottom: 0 !important;
+  }
   .content-block a .block {
     width: 230px;
   }
   .content-block a .block .thumb img {
     height: 160px;
+  }
+}
+@media (max-width: 767px) {
+  .carousel {
+    height: 300px;
+  }
+  .carousel img {
+    height: 300px !important;
+  }
+  .carousel .carousel-inner .item {
+    height: 300px;
+  }
+  .single .banner,
+  .linelist .banner,
+  .article .banner,
+  .blocklist .banner,
+  .search-res .banner .attachment .banner {
+    height: 260px;
+    margin-bottom: 0;
+  }
+  .top .container {
+    width: 100%;
+  }
+  .dg-container nav {
+    width: 100px !important;
+    left: 15%;
+    right: 15%;
+    margin: 0 auto;
+    bottom: 0 !important;
+  }
+  .right-widget {
+    width: 100%;
+  }
+  .right-widget .widget {
+    width: 350px;
+    margin: 30px auto;
   }
 }

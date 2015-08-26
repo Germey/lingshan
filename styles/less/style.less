@@ -84,16 +84,6 @@ hr {
 			border: 1px solid #DDD;
 		}
 	}
-
-	.row {
-		 .col-md-9 {
-		 	width: 70%;
-		 	padding-right: 25px;
-	     }
-		 .col-md-3 {
-			width: 30%;
-		 }
-	}
 }
 
 .carousel {
@@ -257,6 +247,11 @@ hr {
 .lingshan {
 	padding: @block-padding;
 	border-bottom: 1px solid @theme-gray;
+	.lingshan-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 	.content {
 		.cat-nav {
 			overflow: hidden;
@@ -817,6 +812,15 @@ p span {
 		height: @height;
 	}
 }
+.projectStyle {
+	.dg-container nav {
+		width: 100px !important;
+		left: 15%;
+		right: 15%;
+		margin: 0 auto;
+		bottom: 0 !important;
+	}
+}
 .bannerStyle(@height:400px) {
 	.single .banner, .linelist .banner, .article .banner, .blocklist .banner, .search-res .banner .attachment .banner{
 		height: @height;
@@ -906,30 +910,87 @@ p span {
 		padding: 15px;
 	}
 }
-
+.rightWightStyle-md {
+	.right-widget {
+		overflow: hidden;
+		width: 100%;
+		.widget {
+			float: left;
+			width: 46%;
+			margin: 30px 2%;
+		}
+	}
+}
+.rightWightStyle-sm {
+	.right-widget {
+		width: 100%;
+		.widget {
+			width: 350px;
+			margin: 30px auto;
+		}
+	}
+}
 
 
 @media (min-width: 1367px) { 
 	.carouselStyle(500px);
 	.bannerStyle(400px);
+	.inner-container {
+		.col-lg-9 {
+			width: 70%;
+		}
+		.col-lg-3 {
+			width: 30%;
+		}
+	}
 }
 
-@media (max-width: 1366px) and (min-width: 900px) {
+@media (max-width: 1366px) and (min-width: 1200px) {
 	.carouselStyle(400px);
 	.bannerStyle(300px);
+	.inner-container {
+		.col-lg-9 {
+			width: 70%;
+		}
+		.col-lg-3 {
+			width: 30%;
+		}
+	}
 }
-
-@media (max-width: 899px) {
-	.carouselStyle(300px);
-	.bannerStyle(260px);
-	.topBarStyle;
+@media (max-width: 1199px) and (min-width: 992px) {
+	.carouselStyle(400px);
+	.bannerStyle(300px);
+	.rightWightStyle-md;
 }
-
-@media (max-width: 992px) and (min-width: 768px) {
+@media (max-width: 991px) and (min-width: 900px) {
+	.carouselStyle(400px);
+	.bannerStyle(300px);
+	.rightWightStyle-md;
+	.projectStyle;
 	.content-block a .block {
 		width: 230px;
 	}
 	.content-block a .block .thumb img {
 		height: 160px;
 	}
+}
+@media (max-width: 899px) and (min-width: 768px) {
+	.carouselStyle(300px);
+	.bannerStyle(260px);
+	.topBarStyle;
+	.rightWightStyle-md;
+	.projectStyle;
+	.content-block a .block {
+		width: 230px;
+	}
+	.content-block a .block .thumb img {
+		height: 160px;
+	}
+}
+@media (max-width: 767px) {
+	.carouselStyle(300px);
+	.bannerStyle(260px);
+	.topBarStyle;
+	.projectStyle;
+	.rightWightStyle-sm;
 }
