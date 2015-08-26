@@ -1,0 +1,13 @@
+<tr>  
+  <td>{$pone['title']}</td>
+  <?php $file = $pone['files'][0]; ?>
+  <td>
+  {:substr($pone['publish_time'], 0, 10)}
+  </td>
+  <td>
+    <if condition="in_array($file['ext'], array('pdf','jpg','gif','png'))">
+      <a href="/Uploads/file/{$file['savepath']}{$file['savename']}" target="_blank"><i class="icon-zoom-in"></i>预览</a>&nbsp;
+    </if>
+    <a href="{:U('File/download?id='.$file['md5'])}"><i class="icon-download-alt"></i>下载</a>&nbsp;（{:format_bytes($file['size'])}）
+  </td>
+</tr>

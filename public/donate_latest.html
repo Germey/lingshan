@@ -1,0 +1,71 @@
+<?php 
+    // @todo 来自灵析的数据
+    $latest_donates = array(
+            array('name' => '周芸',  'amount' => '500.00  ',   'donate_time' => '2015-06-25',      ),
+            array('name' => '李永',  'amount' => '300.00',   'donate_time' => '2015-06-22'         ),
+            array('name' => '李永',  'amount' => '300.00',   'donate_time' => '2015-06-22'         ),
+            array('name' => '吴卉（放生款）', 'amount' => '500.00',   'donate_time' => '2015-06-22'),
+            array('name' => '彭振',  'amount' => '1620.00',   'donate_time' => '2015-06-15'        ),
+            array('name' => '施佳豪', 'amount' => '50.00',   'donate_time' => '2015-06-13'         ),
+            array('name' => '彭振',  'amount' => '1620.00',   'donate_time' => '2015-06-15'        ),
+            array('name' => '施佳豪', 'amount' => '50.00',   'donate_time' => '2015-06-13'         ),
+            array('name' => '梁晶晶', 'amount' => '50.00',   'donate_time' => '2015-06-13'         ),
+        );
+
+
+?>
+
+
+<div class="donate-latest-block">
+    <div id="scrollup" class="scrollup">
+        <table class="table table-noborder table-striped table-condensed">
+            <foreach name="latest_donates" item="one">
+                <tr>
+                    <td>{$one['name']}</td>
+                    <td>{:moneyit($one['amount'])}</td>
+                    <td>{:substr($one['donate_time'],0,10)}</td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary" target="_blank" href="/category/donate_list">
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+            查看更多
+        </a>
+    </div>    
+</div>
+
+
+
+<script type="text/javascript">
+
+
+// JavaScript Document
+$(document).ready(function(){
+    scrollUpDown($('#scrollup table'));
+
+
+    function scrollUpDown(obj) {
+        var _height = obj.outerHeight();
+        var _html = obj.html();
+        obj.html(_html + _html);
+        function scroll() {
+            return setInterval(function() {
+                if (parseFloat(obj.css('margin-top')) > -(_height)) {
+                    obj.css({ 'margin-top': parseFloat(obj.css('margin-top')) - 1 });
+                } else {
+                    obj.css({ 'margin-top': 0 });
+                }
+            }, 60);
+        }
+        var _interval = scroll();
+        obj.hover(function() {
+            _interval = clearInterval(_interval);
+        }, function() {
+            _interval = scroll();
+        });
+    }
+});
+
+</script>

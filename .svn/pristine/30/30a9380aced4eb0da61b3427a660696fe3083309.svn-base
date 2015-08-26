@@ -1,0 +1,31 @@
+<?php 
+    // @todo 来自灵析的数据
+    $total_all = 1.4571;
+    $total_month = 8762;
+?>
+
+<div class="donate-summary-block">
+    <table class="table table-noborder">
+        <tr>
+            <td class="l">{$total_all}</td>
+            <td class="r">
+                <div class="sign">亿元</div>
+                <div>上一年募资总额</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="l">{$total_month}</td>
+            <td class="r">
+                <div class="sign">元</div>
+                <div>上一月募资总额</div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="text-center">
+        <a class="btn btn-primary" target="_blank" href="/category/donate">
+            <span class="glyphicon glyphicon-heart"></span> 
+            我要捐款
+        </a>
+    </div>
+</div>

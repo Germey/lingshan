@@ -1,0 +1,21 @@
+<div class="attachment margin-nav">
+	<include file="public/banner" />
+	<div class="container inner-container">
+	    <include file="public/breadcrumb" />
+	    <include file="public/nav_tab" />
+	    <div class="row">
+            <div class="col-md-9">
+			    <table class="table table-bordered table-hover">
+			    	<th>文件名</th><th>发布时间</th><th>操作</th>
+			        <article:lists name="pone" category="$category['id']" ispage="true" row="6">
+			            <include file="category/attach_li" />
+			        </article:lists>
+			    </table>
+			    <div class="clear"></div>
+			</div>
+			<div class="col-md-3">
+                <include file="public:shared_right" />
+            </div>
+		</div>
+	</div>
+</div>

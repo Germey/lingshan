@@ -1,0 +1,86 @@
+<div class="right-widget">
+	<if condition="$one['title']=='正文'">
+		<div class="related widget">
+			<div class="right-tab">相关文章</div>
+		    <div class="list-box">
+		        <ul class="simple">            
+		          <article:lists name="one" category="$category['id']" ispage="false" row="6">
+		              <li><a href="{$one['link']}">{:get_short($one['title'],40)}</a></li>
+		          </article:lists>
+		        </ul>
+		    </div>
+		</div>
+	</if>
+	<?php 
+
+		// $cats = D("Category")->getChildrenId(53);
+	?>
+	<foreach name="cats" item="cat_id">
+		<?php
+			$cat = D("Category")->getCategoryById($cat_id);
+			//var_dump($cat);
+			$pages = D("Content")->getPagesByTypeId($cat_id,1,3);
+			//var_dump($pages);
+		?>
+		<div class="widget proj">
+			<div class="right-tab">{$cat[0]['title']}</div>
+			<div class="details">
+				<foreach name="pages" item="page">
+					<div class="item">
+						<a href="{$page['link']}">
+						<div class="img">
+							<img src="{:thumb($page['thumb'], 100, 0)}">
+						</div>
+						<div class="des">
+							<p>{:get_short($page['title'], 12)}</p>
+							<p>{:substr($page['publish_time'], 0, 10)}</p>
+						</div>
+						</a>
+					</div>
+				</foreach>
+			</div>
+		</div>
+		
+	</foreach>	
+
+
+	<div class="donate-way widget">
+		<div class="right-tab">信息公开</div>
+		<div class="details">
+			<include file="public/donate_summary" />
+		</div>
+	</div>
+
+	<div class="donate-way widget">
+		<div class="right-tab">最新捐赠</div>
+		<div class="details">
+			<include file="public/donate_latest" />
+		</div>
+	</div>
+
+
+
+	<div class="donate-way widget">
+		<div class="right-tab">捐赠方式</div>
+		<div class="details">
+			{:C('custom_donate_way')}
+		</div>
+	</div>
+	<div class="right-ads widget">
+		<!--
+		<div class="right-tab">更多内容</div>
+		-->
+		<?php $right_ads = D('Banner')->getBannerByName('right_ads'); 
+		?>
+		<div class="details">
+			<foreach name="right_ads" item="one">
+				<div class="one">
+					<a href="{$one['link']}">
+						<img src="{:thumb($one['path'], 220, 0)}">
+						<p>{$one['title']}</p>
+					</a>
+				</div>
+			</foreach>
+		</div>
+	</div>
+</div>

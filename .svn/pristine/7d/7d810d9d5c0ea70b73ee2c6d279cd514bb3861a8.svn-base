@@ -1,0 +1,27 @@
+<div class="blocklist margin-nav">
+    <include file="public/banner" />
+    <div class="container inner-container">
+        <include file="public/breadcrumb" />
+        <include file="public/nav_tab" />
+        <div class="content-block row project">
+            <article:lists name="page" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="100">
+               <div class="col-sm-4">
+                    <a href="{$page['link']}">
+                        <div class="block">
+                            <div class="thumb">
+                                <img src="{:thumb($page['thumb'], 330 , 220)}">
+                            </div>
+                            <div class="title">
+                                {$page['title']}
+                            </div>
+                            <div class="brief">
+                                {:get_short($page['summary'], 100)}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </article:lists>
+        </div>
+    </div>
+</div>
