@@ -125,6 +125,7 @@ hr {
 }
 .top .container {
   overflow: hidden;
+  width: 1100px;
 }
 .top .container .logo {
   float: left;
@@ -135,18 +136,9 @@ hr {
   width: 200px;
   height: 40px;
 }
-.top .container .logo_small {
-  float: left;
-  padding-top: 15px;
-  padding-right: 10px;
-}
-.top .container .logo_small img {
-  width: 50px;
-  height: 50px;
-}
 .top .container .top_nav {
   float: left;
-  width: 570px;
+  width: 60%;
 }
 .top .container .top_nav ul.nav {
   margin-bottom: 0px;
@@ -964,18 +956,6 @@ p span {
   width: 350px;
   margin: 30px auto;
 }
-.bigLogo .logo {
-  display: block;
-}
-.bigLogo .logo_small {
-  display: none;
-}
-.smallLogo .logo {
-  display: none;
-}
-.smallLogo .logo_small {
-  display: block;
-}
 @media (min-width: 1367px) {
   .carousel {
     height: 550px;
@@ -996,12 +976,6 @@ p span {
   .downloadlist .banner {
     height: 400px;
     margin-bottom: 0;
-  }
-  .logo {
-    display: block;
-  }
-  .logo_small {
-    display: none;
   }
   .inner-container .col-lg-9 {
     width: 70%;
@@ -1030,12 +1004,6 @@ p span {
   .downloadlist .banner {
     height: 300px;
     margin-bottom: 0;
-  }
-  .logo {
-    display: block;
-  }
-  .logo_small {
-    display: none;
   }
   .inner-container .col-lg-9 {
     width: 70%;
@@ -1074,12 +1042,6 @@ p span {
     width: 46%;
     margin: 30px 2%;
   }
-  .logo {
-    display: block;
-  }
-  .logo_small {
-    display: none;
-  }
 }
 @media (max-width: 991px) and (min-width: 900px) {
   .carousel {
@@ -1117,12 +1079,6 @@ p span {
     right: 15%;
     margin: 0 auto;
     bottom: 0 !important;
-  }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
   }
   .content-block a .block {
     width: 230px;
@@ -1171,12 +1127,6 @@ p span {
     margin: 0 auto;
     bottom: 0 !important;
   }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
-  }
   .content-block a .block {
     width: 230px;
   }
@@ -1207,12 +1157,6 @@ p span {
   }
   .top .container {
     width: 100%;
-  }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
   }
   .dg-container nav {
     width: 100px !important;

@@ -14,7 +14,7 @@
             <foreach name="carousel" item="one" key="num">
                <div class="item <?php if ($num == 0) echo 'active'?>" style="background-image:url({:thumb($one['path'], 0, 400)})">
                     <if condition="$one['link']">
-                        <a class="banner-link" target="_blank" href="{$one['link']}"></a>
+                        <a class="banner-link" href="{$one['link']}"></a>
                     </if>
                     <img class="banner-bottom" src="__IMG__/banner-bottom.png">
                 </div>
@@ -82,7 +82,7 @@
                                             {:get_short($page['summary'], 140)}
                                         </div>
                                         <div class="more">
-                                            <a target="_blank" href="{$page['link']}">查看详情</a>
+                                            <a href="{$page['link']}">查看详情</a>
                                         </div>
                                     </div>
                                 </foreach>
@@ -107,7 +107,7 @@
     <div class="donate">
         <div class="container content">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="item disclosure">
                         <div class="title">
                             <span class="eng">Disclosure</span><span class="mid">|</span><span class="zh">信息公开</span>
@@ -115,7 +115,7 @@
                         <include file="public/donate_summary" />
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="item donate-list">
                         <div class="title">
                             <span class="eng">Donation list</span><span class="mid">|</span><span class="zh">最新捐赠</span>
@@ -123,7 +123,7 @@
                         <include file="public/donate_latest" />
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="item support">
                         <div class="title">
                             <span class="eng">Support us</span><span class="mid">|</span><span class="zh">支持灵山</span>
@@ -157,7 +157,7 @@
             <div class="content-block row">
                 <foreach name="pages" item="page">
                    <div class="col-sm-4">
-                        <a target="_blank" href="{$page['link']}">
+                        <a href="{$page['link']}">
                             <div class="block">
                                 <div class="thumb">
                                     <img src="{:thumb($page['thumb'], 330 , 220)}">
@@ -177,7 +177,7 @@
                 </foreach>
             </div>
             <div class="more">
-                <a href="{$news['link']}" target="_blank" class="btn btn-primary">查看更多</a>
+                <a href="{$news['link']}" class="btn btn-primary">查看更多</a>
             </div>
         </div>
     </div>
@@ -192,7 +192,7 @@
             </form>
         </div>
         <div class="download">
-            <a href="/category/edownload" target="_blank" class="btn btn-primary">
+            <a href="/category/edownload" class="btn btn-primary">
                 <span class="glyphicon glyphicon-download-alt"></span> 下载电子期刊 | Download
             </a>
         </div>

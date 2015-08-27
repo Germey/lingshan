@@ -150,7 +150,8 @@ hr {
 	background-color: @bg-color;
 	.container {
 		overflow: hidden;
-		.logo {
+		width: 1100px;
+		.logo{
 			float: left;
 			padding-top: 20px;
 			padding-right: 30px;
@@ -159,18 +160,9 @@ hr {
 				height: 40px;
 			}
 		}
-		.logo_small {
-			float: left;
-			padding-top: 15px;
-			padding-right: 10px;
-			img {
-				width: 50px;
-				height: 50px;
-			}
-		}
 		.top_nav {
 			float: left;
-			width: 570px;
+			width: 60%;
 			ul.nav {
 				margin-bottom: 0px;
 				& > li {
@@ -1011,26 +1003,11 @@ p span {
 		}
 	}
 }
-.bigLogo {
-	.logo {
-		display: block;
-	}
-	.logo_small {
-		display: none;
-	}
-}
-.smallLogo {
-	.logo {
-		display: none;
-	}
-	.logo_small {
-		display: block;
-	}
-}
+
+
 @media (min-width: 1367px) { 
 	.carouselStyle(550px);
 	.bannerStyle(400px);
-	.bigLogo;
 	.inner-container {
 		.col-lg-9 {
 			width: 70%;
@@ -1044,7 +1021,6 @@ p span {
 @media (max-width: 1366px) and (min-width: 1200px) {
 	.carouselStyle(500px);
 	.bannerStyle(300px);
-	.bigLogo;
 	.inner-container {
 		.col-lg-9 {
 			width: 70%;
@@ -1058,14 +1034,12 @@ p span {
 	.carouselStyle(400px);
 	.bannerStyle(300px);
 	.rightWightStyle-md;
-	.bigLogo;
 }
 @media (max-width: 991px) and (min-width: 900px) {
 	.carouselStyle(400px);
 	.bannerStyle(300px);
 	.rightWightStyle-md;
 	.projectStyle;
-	.smallLogo;
 	.content-block a .block {
 		width: 230px;
 	}
@@ -1079,7 +1053,6 @@ p span {
 	.topBarStyle;
 	.rightWightStyle-md;
 	.projectStyle;
-	.smallLogo;
 	.content-block a .block {
 		width: 230px;
 	}
@@ -1091,7 +1064,6 @@ p span {
 	.carouselStyle(300px);
 	.bannerStyle(260px);
 	.topBarStyle;
-	.smallLogo;
 	.projectStyle;
 	.rightWightStyle-sm;
 }

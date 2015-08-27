@@ -3,7 +3,6 @@
 <div class="top">
     <div class="container">
         <div class="logo"><a href="/"><img src="__IMG__/logo.png" alt="{:C('site_title')}"/></a></div>
-        <div class="logo_small"><a href="/"><img src="__IMG__/logo_small.png" alt="{:C('site_title')}"/></a></div>
         <div class="top_nav">
             <div class="list">
                 <category:menu level="2" />

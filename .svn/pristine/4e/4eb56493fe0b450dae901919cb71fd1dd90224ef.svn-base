@@ -4,17 +4,20 @@
         <include file="public/breadcrumb" />
         <include file="public/nav_tab" />
         <div class="content row">
-            <article:lists name="page" category="$category['id']" tag_id="$_GET['stid']" >
+            <article:lists name="page" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="9">
                 <div class="block">
                     <div class="thumb">
-                        <img src="{:thumb($page['thumb'], 160, 160)}">
+                        <img src="{:thumb($page['thumb'], 0 , 220)}">
                     </div>
                     <div class="details">
                         <div class="title">
-                            {$page['title']}
+                            {:get_short($page['title'], 20)}
                         </div>
                         <div class="brief">
-                            {:trim(strip_tags($page['content']))}
+                            {:get_short(trim(strip_tags($page['content'])),500)}
+                        </div>
+                        <div class="msg">
+                            {:get_short(trim($page['summary']), 90)}
                         </div>
                     </div>
                 </div>

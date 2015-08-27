@@ -110,12 +110,6 @@ hr {
 .carousel .carousel-indicators li {
   margin-left: 10px;
 }
-.carousel .banner-bottom {
-  height: 60px !important;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 .top {
   position: relative;
   width: 100%;
@@ -125,6 +119,7 @@ hr {
 }
 .top .container {
   overflow: hidden;
+  width: 1100px;
 }
 .top .container .logo {
   float: left;
@@ -135,18 +130,9 @@ hr {
   width: 200px;
   height: 40px;
 }
-.top .container .logo_small {
-  float: left;
-  padding-top: 15px;
-  padding-right: 10px;
-}
-.top .container .logo_small img {
-  width: 50px;
-  height: 50px;
-}
 .top .container .top_nav {
   float: left;
-  width: 570px;
+  width: 60%;
 }
 .top .container .top_nav ul.nav {
   margin-bottom: 0px;
@@ -696,7 +682,8 @@ hr {
 .teamlist .content .block {
   overflow: hidden;
   margin: 20px 0;
-  border-bottom: 1px dashed #EEE;
+  background: #F5F5F5;
+  border: 1px solid #DDD;
 }
 .teamlist .content .block .thumb {
   float: left;
@@ -705,7 +692,7 @@ hr {
   text-align: center;
 }
 .teamlist .content .block .thumb img {
-  width: 160px;
+  width: 150px;
   height: 160px;
 }
 .teamlist .content .block .details {
@@ -722,6 +709,13 @@ hr {
 .teamlist .content .block .details .brief {
   text-indent: 30px;
   min-height: 85px;
+}
+.teamlist .content .block .details .msg {
+  padding: 10px;
+  text-align: left;
+  text-indent: 0;
+  padding-left: 0;
+  color: #47945D;
 }
 .downloadlist .content-block {
   padding-top: 30px;
@@ -964,53 +958,7 @@ p span {
   width: 350px;
   margin: 30px auto;
 }
-.bigLogo .logo {
-  display: block;
-}
-.bigLogo .logo_small {
-  display: none;
-}
-.smallLogo .logo {
-  display: none;
-}
-.smallLogo .logo_small {
-  display: block;
-}
 @media (min-width: 1367px) {
-  .carousel {
-    height: 550px;
-  }
-  .carousel img {
-    height: 550px !important;
-  }
-  .carousel .carousel-inner .item {
-    height: 550px;
-  }
-  .single .banner,
-  .linelist .banner,
-  .article .banner,
-  .blocklist .banner,
-  .search-res .banner,
-  .attachment .banner,
-  .teamlist .banner,
-  .downloadlist .banner {
-    height: 400px;
-    margin-bottom: 0;
-  }
-  .logo {
-    display: block;
-  }
-  .logo_small {
-    display: none;
-  }
-  .inner-container .col-lg-9 {
-    width: 70%;
-  }
-  .inner-container .col-lg-3 {
-    width: 30%;
-  }
-}
-@media (max-width: 1366px) and (min-width: 1200px) {
   .carousel {
     height: 500px;
   }
@@ -1028,14 +976,36 @@ p span {
   .attachment .banner,
   .teamlist .banner,
   .downloadlist .banner {
-    height: 300px;
+    height: 400px;
     margin-bottom: 0;
   }
-  .logo {
-    display: block;
+  .inner-container .col-lg-9 {
+    width: 70%;
   }
-  .logo_small {
-    display: none;
+  .inner-container .col-lg-3 {
+    width: 30%;
+  }
+}
+@media (max-width: 1366px) and (min-width: 1200px) {
+  .carousel {
+    height: 400px;
+  }
+  .carousel img {
+    height: 400px !important;
+  }
+  .carousel .carousel-inner .item {
+    height: 400px;
+  }
+  .single .banner,
+  .linelist .banner,
+  .article .banner,
+  .blocklist .banner,
+  .search-res .banner,
+  .attachment .banner,
+  .teamlist .banner,
+  .downloadlist .banner {
+    height: 300px;
+    margin-bottom: 0;
   }
   .inner-container .col-lg-9 {
     width: 70%;
@@ -1074,12 +1044,6 @@ p span {
     width: 46%;
     margin: 30px 2%;
   }
-  .logo {
-    display: block;
-  }
-  .logo_small {
-    display: none;
-  }
 }
 @media (max-width: 991px) and (min-width: 900px) {
   .carousel {
@@ -1117,12 +1081,6 @@ p span {
     right: 15%;
     margin: 0 auto;
     bottom: 0 !important;
-  }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
   }
   .content-block a .block {
     width: 230px;
@@ -1171,12 +1129,6 @@ p span {
     margin: 0 auto;
     bottom: 0 !important;
   }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
-  }
   .content-block a .block {
     width: 230px;
   }
@@ -1207,12 +1159,6 @@ p span {
   }
   .top .container {
     width: 100%;
-  }
-  .logo {
-    display: none;
-  }
-  .logo_small {
-    display: block;
   }
   .dg-container nav {
     width: 100px !important;

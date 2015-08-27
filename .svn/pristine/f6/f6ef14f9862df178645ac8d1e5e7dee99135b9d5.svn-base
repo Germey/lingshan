@@ -157,7 +157,7 @@
             <div class="content-block row">
                 <foreach name="pages" item="page">
                    <div class="col-sm-4">
-                        <a target="_blank" href="{$page['link']}">
+                        <a href="{$page['link']}">
                             <div class="block">
                                 <div class="thumb">
                                     <img src="{:thumb($page['thumb'], 330 , 220)}">
@@ -177,7 +177,7 @@
                 </foreach>
             </div>
             <div class="more">
-                <a href="{$news['link']}" target="_blank" class="btn btn-primary">查看更多</a>
+                <a href="{$news['link']}" class="btn btn-primary">查看更多</a>
             </div>
         </div>
     </div>
@@ -192,7 +192,7 @@
             </form>
         </div>
         <div class="download">
-            <a href="/category/edownload" target="_blank" class="btn btn-primary">
+            <a href="/category/edownload" class="btn btn-primary">
                 <span class="glyphicon glyphicon-download-alt"></span> 下载电子期刊 | Download
             </a>
         </div>
