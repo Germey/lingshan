@@ -738,54 +738,58 @@ hr {
   line-height: 24px;
 }
 .bandlist form {
+  width: 600px;
   margin: 0 auto;
   overflow: hidden;
 }
 .bandlist form input {
-  margin-right: 10px;
-  max-width: 150px;
+  margin: 0 20px;
+  max-width: 200px;
   float: left;
 }
 .bandlist form select {
-  margin: 0 10px;
-  max-width: 150px;
+  margin: 0 20px;
+  max-width: 200px;
   float: left;
 }
 .bandlist .content {
-  padding: 0;
+  padding: 0 40px;
 }
 .bandlist .content .block {
   overflow: hidden;
-  margin: 25px 0;
+  margin: 20px 0;
   padding-bottom: 20px;
   border-bottom: 1px dashed #EEE;
 }
 .bandlist .content .block .thumb {
   float: left;
   width: 20%;
+  padding: 20px 0;
   text-align: center;
 }
 .bandlist .content .block .thumb img {
-  width: 180px;
+  width: 160px;
+  height: 160px;
 }
 .bandlist .content .block .details {
   float: left;
   width: 80%;
-  padding: 0px 20px;
+  padding: 15px 20px;
   padding-left: 5px;
 }
 .bandlist .content .block .details .title {
   text-align: left;
-  padding-top: 0;
-  font-weight: bold;
-  font-size: 16px;
+}
+.bandlist .content .block .details .title a {
+  font-size: 20px;
+  color: #00ab36;
 }
 .bandlist .content .block .details .found_time {
   margin-bottom: 10px;
 }
 .bandlist .content .block .details .brief {
-  color: #666;
-  line-height: 24px;
+  text-indent: 30px;
+  min-height: 85px;
 }
 .downloadlist .content-block .block {
   height: 232px;

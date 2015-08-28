@@ -1,0 +1,87 @@
+<div class="article margin-nav">
+    <include file="public/banner" />
+    <div class="container inner-container">
+        <include file="public/breadcrumb" />
+        <div class="row">
+            <div class="col-lg-9 col-sm-12">
+                <div class="content">
+                    <div class="main-content">
+                        <div class="info-head">
+                            {$info['title']}
+                        </div>
+                        <div class="article-infos">
+                            <div class="article-info">
+                                <if condition="$info['source_name']">
+                                    <span>来源：<a href="{$info['source_link']}" target="_blank">{$info['source_name']}</a></span>
+                                </if>
+                            </div>
+                            <div class="article-info">
+                                <if condition="$info['author_name']"><span class="muted">编辑：{$info['author_name']}</span>
+                                </if>
+                            </div>
+                            <div class="article-info">
+                                <span class="muted">时间：{:substr($info['publish_time'],0,16)}</span>
+                            </div>
+        <!--                     <div class="article-info pull-right">
+                                <if condition="$info['tags']">
+                                    <span><i title="标签" class="glyphicon glyphicon-tag"></i>
+                                        <foreach name="info['tags']" item="t">
+                                            <a href="/category/{$category['id']}?stid={$t['tag_id']}">{$t['name']}</a>&nbsp;&nbsp;
+                                        </foreach>
+                                    </span>
+                                </if>
+                            </div> -->
+                        </div>
+                        <if condition="$info['summary']">
+                            <div class="summary">
+                                <blockquote>
+                                    {:nl2br($info['summary'])}
+                                </blockquote>
+                            </div>
+                        </if>
+                        <div class="details">
+                            {$info['content']}
+                        </div>
+                        <div class="share">
+                            <!-- JiaThis Button BEGIN -->
+                            <div class="jiathis_style_24x24">
+                                <a class="jiathis_button_qzone"></a>
+                                <a class="jiathis_button_tsina"></a>
+                                <a class="jiathis_button_weixin"></a>
+                                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                                <a class="jiathis_counter_style"></a>
+                            </div>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                            <!-- JiaThis Button END -->
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <?php 
+                    $children_pages = $info['children_pages'];
+                ?>
+                <if condition="($category['parent']['id'] eq 53) and $children_pages">
+                    <div class="related-article">
+                        <div class="title">相关新闻</div>
+                        <foreach name="children_pages" item="one">
+                            <li><a href="{$one['link']}">{:get_short($one['title'],36)}</a></li>
+                        </foreach>
+                    </div>
+                </if>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <include file="public:shared_right" />
+            </div>
+        </div>
+<!--         <div class="related">
+            <div class="list-box">
+                <h5 class="title">相关文章</h5>
+                <ul class="simple">            
+                  <article:lists name="one" category="$category['id']" ispage="false" row="6">
+                      <li><i title="列表" class="glyphicon glyphicon-minus"></i><a href="{$one['link']}">{:get_short($one['title'],40)}</a></li>
+                  </article:lists>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+</div>

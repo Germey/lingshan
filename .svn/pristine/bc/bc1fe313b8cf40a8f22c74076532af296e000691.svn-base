@@ -15,7 +15,7 @@ a {
 	color: #333; 
 }
 a:hover, a:focus { 
-	color: #E0212A;
+	color: #E0212A; 
 	opacity: 0.9;
 	text-decoration: none;
 }

@@ -15,7 +15,7 @@ a {
 	color: #333; 
 }
 a:hover, a:focus { 
-	color: #E0212A;
+	color: #E0212A; 
 	opacity: 0.9;
 	text-decoration: none;
 }
@@ -708,51 +708,55 @@ hr {
 }
 .bandlist {
 	form {
+		width: 600px;
 		margin: 0 auto;
 		overflow: hidden;
 		input {
-			margin-right: 10px;
-			max-width: 150px;
+			margin: 0 20px;
+			max-width: 200px;
 			float: left;
 		}
 		select {
-			margin: 0 10px;
-			max-width: 150px;
+			margin: 0 20px;
+			max-width: 200px;
 			float: left;
 		}
 	}
 	.content {
-		padding: 0;
+		padding: 0 40px;
 		.block {
 			overflow: hidden;
-			margin: 25px 0;
+			margin: 20px 0;
 			padding-bottom: 20px;
 			border-bottom: 1px dashed #EEE;
 			.thumb {
 				float: left;
 				width: 20%;
+				padding: 20px 0;
 				text-align: center;
 				img {
-					width: 180px;
+					width: 160px;
+					height: 160px;
 				}
 			}
 			.details {
 				float: left;
 				width: 80%;
-				padding: 0px 20px;
+				padding: 15px 20px;
   				padding-left: 5px;
   				.title {
   					text-align: left;
-  					padding-top: 0;
-  					font-weight: bold;
-  					font-size: 16px;
+  					a {
+						font-size: 20px;
+						color: @theme-green;
+  					}
   				}
   				.found_time {
   					margin-bottom: 10px;
   				}
   				.brief {
-  					color: #666;
-  					line-height: 24px;
+  					text-indent: 30px;
+  					min-height: 85px;
   				}
 			}
 		}

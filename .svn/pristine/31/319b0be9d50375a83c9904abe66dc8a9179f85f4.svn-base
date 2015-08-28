@@ -1,0 +1,70 @@
+<div class="downloadlist margin-nav">
+    <include file="public/banner" />
+    <div class="container inner-container">
+        <include file="public/breadcrumb" />
+        <include file="public/nav_tab" />
+        <div class="row">
+            <div class="col-lg-9 col-sm-12">
+
+        <div class="content-block row">
+            <article:lists name="page" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="9">
+                <div class="col-sm-4">
+                    <if condition="$page['model_id']==5">
+                        <?php $file = $page['files'][0]; ?>
+                        <div class="block">
+                            <div class="thumb">
+                                <img src="{:thumb($page['thumb'], 300 , 200)}">
+                            </div>
+                            <div class="title">{$page['title']}</div>
+                            <div class="brief">
+                                <if condition="in_array($file['ext'], array('pdf','jpg','gif','png'))">
+                                    <a href="/Uploads/file/{$file['savepath']}{$file['savename']}" target="_blank" class="btn btn-default btn-xs">
+                                      <span class="glyphicon glyphicon-zoom-in" aria-hidden="true">
+                                      </span> 预览
+                                    </a>
+                                </if>
+                                <a href="{:U('File/download?id='.$file['md5'])}" class="btn btn-default btn-xs">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 下载
+                                </a>
+                            </div>
+                        </div>
+                    <elseif condition="$page['model_id']==3" />
+                        <div class="block">
+                            <div class="thumb">
+                                <img src="{:thumb($page['thumb'], 330 , 220)}">
+                            </div>
+                            <div class="title">
+                                {:get_short($page['title'], 28)}
+                            </div>
+                            <div class="brief">
+                                <a target="_blank" href="{$page['link']}" class="btn btn-default btn-xs">
+                                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span> 详情
+                                </a>
+                            </div>
+                        </div>
+                    <else />
+                        <div class="block">
+                            <div class="thumb">
+                                <img src="{:thumb($page['thumb'], 330 , 220)}">
+                            </div>
+                            <div class="title">
+                                {:get_short($page['title'], 28)}
+                            </div>
+                            <div class="brief">
+                                <a target="_blank" href="{$page['link']}" class="btn btn-default btn-xs">
+                                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </if>
+                </div>
+                </article:lists>
+                <div class="clearfix"></div>
+                <div class="pagestring">{$pagestring}</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <include file="public:shared_right" />
+        </div>            
+    </div>
+</div>

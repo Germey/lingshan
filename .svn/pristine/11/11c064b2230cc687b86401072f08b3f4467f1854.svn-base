@@ -51,17 +51,6 @@
                         <br />
                     </div>
                 </div>
-                <?php 
-                    $children_pages = $info['children_pages'];
-                ?>
-                <if condition="($category['parent']['parent']['id'] eq 53) and $children_pages">
-                    <div class="related-article">
-                        <div class="title">相关新闻</div>
-                        <foreach name="children_pages" item="one">
-                            <li><a href="{$one['link']}">{:get_short($one['title'],36)}</a></li>
-                        </foreach>
-                    </div>
-                </if>
             </div>
             <div class="col-lg-3 col-sm-12">
                 <include file="public:shared_right" />

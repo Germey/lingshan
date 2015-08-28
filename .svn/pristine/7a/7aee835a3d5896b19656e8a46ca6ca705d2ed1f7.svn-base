@@ -54,7 +54,7 @@
                 <?php 
                     $children_pages = $info['children_pages'];
                 ?>
-                <if condition="($category['parent']['parent']['id'] eq 53) and $children_pages">
+                <if condition="($category['parent']['id'] eq 53) and $children_pages">
                     <div class="related-article">
                         <div class="title">相关新闻</div>
                         <foreach name="children_pages" item="one">

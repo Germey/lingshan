@@ -1,0 +1,80 @@
+<?php
+    $key_words = I("get.key_words");
+?>
+<div class="bandlist margin-nav">
+    <include file="public/banner" />
+    <div class="container inner-container">
+        <include file="public/breadcrumb" />
+        <?php 
+            $children_id = D("Category")->getChildrenId(236);
+        ?>
+        <form action="" method="get" name="kind" onsubmit="return check_sub()" class="form-horizontal" role="form">
+            <input type="text" class="form-control" id="key_words" name="key_words" placeholder="关键字" value="{$key_words}">
+            <select onchange="window.location=this.value;" class="form-control">
+                <option value="/category/236">基金类型</option>
+                <foreach name="children_id" item="one">
+                    <?php $cat = D("Category")->getCategoryById($one);?>
+                    <option value ="/category/{$one}" <if condition="$category['id'] eq $one">selected</if>>{$cat['title']}</option>
+                </foreach>
+            </select>
+            <input type="submit" class="btn btn-primary"value="查询">
+        </form>
+        <div class="content row">
+            <if condition="!$key_words">
+                <article:lists name="page" category="$category['id']" tag_id="$_GET['stid']" ispage="true" row="9">
+                    <div class="block">
+                        <div class="thumb">
+                            <img src="{:thumb($page['thumb'], 160, 160)}">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="{$page['link']}">{$page['title']}</a>
+                            </div>
+                            <div class="found_time">
+                                <span>成立时间：</span><span>{$page['extend']['found_time']?$page['extend']['found_time']:"未知"}</span>
+                            </div>
+                            <div class="brief">
+                                {:get_short(trim(strip_tags($page['content'])), 400)}
+                            </div>
+                        </div>
+                    </div>
+                </article:lists>
+            <else />
+                <?php 
+                    //这里有问题，获取的文章内容并不是展示出来的那几篇，怪怪的。所以仍然用articlelist了，没有加row，我尝试合并，但是合并的时候加判断条件，结果总提示XML解析错误。。。所以暂时又把它分开了。。。。
+                    //$pages = D("Content")->getPagesByTypeId($category['id']);
+                ?>
+                <article:lists name="page" category="$category['id']" tag_id="$_GET['stid']">
+                    <if condition="strpos($page['title'], $key_words) !== false">
+                        <div class="block">
+                            <div class="thumb">
+                                <img src="{:thumb($page['thumb'], 160, 160)}">
+                            </div>
+                            <div class="details">
+                                <div class="title">
+                                    <a href="{$page['link']}">{$page['title']}</a>
+                                </div>
+                                <div class="found_time">
+                                    <span>成立时间：</span><span>{$page['extend']['found_time']?$page['extend']['found_time']:"未知"}</span>
+                                </div>
+                                <div class="brief">
+                                    {:get_short(trim(strip_tags($page['content'])), 400)}
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                </article:lists>
+            </if>
+        </div>
+        <div class="pagestring">{$pagestring}</div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<script>
+function check_sub() {
+    if($("#key_words").val()=="") {
+        $("#key_words").focus();
+        return false;
+    }
+}
+</script>

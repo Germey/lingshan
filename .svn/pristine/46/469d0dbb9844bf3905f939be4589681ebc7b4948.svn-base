@@ -33,14 +33,6 @@ a:focus {
 .open > .dropdown-toggle.btn-primary {
   background-image: none;
 }
-.btn-primary-alt {
-  color: #00ab36;
-  background-color: #FFF;
-  border-color: #00ab36;
-}
-.modal-content {
-  border-radius: 2px;
-}
 hr {
   margin-top: 12px;
   margin-bottom: 12px;
@@ -72,9 +64,6 @@ hr {
 .inner-container {
   background: white;
   padding: 10px 30px;
-}
-.inner-container img {
-  max-width: 1100px;
 }
 .inner-container .content-block .block {
   background: #f8f8f8;
@@ -186,6 +175,7 @@ hr {
   padding: 10px 10px;
   background-image: none;
   margin: 0;
+  border-top: 1px solid #DDD;
 }
 .top .container .top_nav ul.nav ul.dropdown-menu li a:hover {
   background-color: #00ab36;
@@ -286,9 +276,9 @@ hr {
 }
 .lingshan .content .summary .wrap .page {
   width: 460px;
-  height: 506px;
+  height: 490px;
   float: left;
-  padding-top: 10px;
+  padding-top: 5px;
   background-color: white;
   color: #333333;
   margin: 10px;
@@ -706,6 +696,9 @@ hr {
 .label-select {
   background-color: #00ab36;
 }
+.teamlist .content {
+  padding: 0 40px;
+}
 .teamlist .content .block {
   overflow: hidden;
   margin: 20px 0;
@@ -732,65 +725,69 @@ hr {
   font-size: 20px;
   text-align: left;
   color: #00ab36;
-  padding-top: 0;
 }
 .teamlist .content .block .details .brief {
-  line-height: 24px;
+  text-indent: 30px;
+  min-height: 85px;
 }
 .bandlist form {
+  width: 600px;
   margin: 0 auto;
   overflow: hidden;
 }
 .bandlist form input {
-  margin-right: 10px;
-  max-width: 150px;
+  margin: 0 20px;
+  max-width: 200px;
   float: left;
 }
 .bandlist form select {
-  margin: 0 10px;
-  max-width: 150px;
+  margin: 0 20px;
+  max-width: 200px;
   float: left;
 }
 .bandlist .content {
-  padding: 0;
+  padding: 0 40px;
 }
 .bandlist .content .block {
   overflow: hidden;
-  margin: 25px 0;
+  margin: 20px 0;
   padding-bottom: 20px;
   border-bottom: 1px dashed #EEE;
 }
 .bandlist .content .block .thumb {
   float: left;
   width: 20%;
+  padding: 20px 0;
   text-align: center;
 }
 .bandlist .content .block .thumb img {
-  width: 180px;
+  width: 160px;
+  height: 160px;
 }
 .bandlist .content .block .details {
   float: left;
   width: 80%;
-  padding: 0px 20px;
+  padding: 15px 20px;
   padding-left: 5px;
 }
 .bandlist .content .block .details .title {
   text-align: left;
-  padding-top: 0;
-  font-weight: bold;
-  font-size: 16px;
 }
-.bandlist .content .block .details .found_time {
-  margin-bottom: 10px;
+.bandlist .content .block .details .title a {
+  font-size: 20px;
+  color: #00ab36;
 }
 .bandlist .content .block .details .brief {
-  color: #666;
-  line-height: 24px;
+  text-indent: 30px;
+  min-height: 85px;
+}
+.downloadlist .content-block {
+  padding-top: 30px;
 }
 .downloadlist .content-block .block {
-  height: 232px;
+  width: 280px;
   margin: 0 auto;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 .downloadlist .content-block .block .thumb {
   width: 100%;
@@ -800,11 +797,7 @@ hr {
   width: 100%;
 }
 .downloadlist .content-block .block .title {
-  font-size: 14px;
-  font-weight: bold;
-  padding: 6px;
-  height: 30px;
-  overflow: hidden;
+  font-size: 16px;
 }
 .downloadlist .content-block .block .brief {
   text-align: center;
@@ -883,7 +876,7 @@ hr {
 }
 #footer {
   background-color: #00ab36;
-  padding: 20px 0 10px 0;
+  padding: 20px 0;
 }
 #footer .container {
   color: #fefefe;
@@ -997,10 +990,6 @@ p span {
   border: 1px solid #DEDEDE;
   border-radius: 3px;
 }
-.right-widget .donate-way .right-tab {
-  margin-left: 18px;
-  margin-top: 10px;
-}
 .right-widget .right-ads .details {
   padding: 0;
   background-color: inherit;
@@ -1011,6 +1000,7 @@ p span {
 }
 .right-widget .right-ads .details img {
   width: 100%;
+  height: 160px;
 }
 .right-widget .right-ads .details p {
   padding: 10px 0;
@@ -1078,7 +1068,7 @@ p span {
   .attachment .banner,
   .teamlist .banner,
   .downloadlist .banner {
-    height: 300px;
+    height: 400px;
     margin-bottom: 0;
   }
   .logo {
@@ -1237,7 +1227,7 @@ p span {
   .attachment .banner,
   .teamlist .banner,
   .downloadlist .banner {
-    height: 300px;
+    height: 260px;
     margin-bottom: 0;
   }
   .top .container {
@@ -1291,7 +1281,7 @@ p span {
   .attachment .banner,
   .teamlist .banner,
   .downloadlist .banner {
-    height: 300px;
+    height: 260px;
     margin-bottom: 0;
   }
   .top .container {

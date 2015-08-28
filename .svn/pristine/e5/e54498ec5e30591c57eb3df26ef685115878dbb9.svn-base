@@ -1,6 +1,6 @@
 <div class="right-widget">
-	<if condition="$is_detail_page eq 1">
-		<if condition="$category['parent'][id] neq 53">
+	<if condition="$is_detail_page==1">
+		<if condition="$category['parent'][id]!=53">
 			<div class="related widget">
 				<div class="right-tab">相关文章</div>
 			    <div class="list-box">
@@ -14,7 +14,7 @@
 		</if>
 	</if>
 
-	<if condition="$category['parent'][id] eq 53">
+	<if condition="$category['parent'][id]==53">
 		<div class="proj-logo widget text-center">
 			<img src="{:thumb($info['thumb'], 300, 0)}">
 		</div>
@@ -53,13 +53,13 @@
 
 
 	<div class="donate-way widget">
-		<div class="right-tab">
+		<div class="right-tab" style="margin-left: 18px;margin-top: 10px;">
 			<img src="__IMG__/logo-icon.png" style="width: 30px;"> 信息公开
 		</div>
 		<include file="public/donate_summary" />
 	</div>
-	<div class="donate-way widget" style="padding-bottom: 15px;">
-		<div class="right-tab" style="margin-bottom: 10px;">最新捐赠</div>
+	<div class="donate-way widget">
+		<div class="right-tab" style="margin-left: 18px;margin-bottom: 10px;">最新捐赠</div>
 		<include file="public/donate_latest" />
 	</div>
 
@@ -78,8 +78,8 @@
 		<div class="details">
 			<foreach name="right_ads" item="one">
 				<div class="one">
-					<a href="{$one['link']}" target="_blank">
-						<img src="{:thumb($one['path'], 250, 0)}" alt="{$one['title']}">
+					<a href="{$one['link']}">
+						<img src="{:thumb($one['path'], 250, 0)}">
 					</a>
 				</div>
 			</foreach>

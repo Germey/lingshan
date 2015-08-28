@@ -15,7 +15,7 @@
 	</if>
 
 	<if condition="$category['parent'][id] eq 53">
-		<div class="proj-logo widget text-center">
+		<div class="proj-logo widget">
 			<img src="{:thumb($info['thumb'], 300, 0)}">
 		</div>
 	</if>

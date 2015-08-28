@@ -66,10 +66,10 @@
                 <div class="summary">
                     <foreach name="cats" item="cat">
                         <?php
-                            $pages = D("Content")->getPagesByTypeId($cat['id'],1,6);
+                            $pages = D("Content")->getPagesByTypeId($cat,1,6, $extra_condition);
                             if(!$pages) {
                                 // 子栏目中
-                                $pages = D("Content")->getPagesByTypeId($cat['id'],1,6, array('is_getting_childrens'=>true));
+                                $pages = D("Content")->getPagesByTypeId($cat,1,6, array('is_getting_childrens'=>true));
                             }
                         ?>
                         <div id="dg-container" class="wrap dg-container" name="{$cat['id']}">
