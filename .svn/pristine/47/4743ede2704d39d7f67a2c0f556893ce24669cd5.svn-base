@@ -153,7 +153,6 @@ hr {
   float: left;
   padding-top: 15px;
   padding-right: 10px;
-  margin-left: 10px;
 }
 .top .container .logo_small img {
   width: 50px;
@@ -559,9 +558,8 @@ hr {
 .navigation ul {
   font-size: 15px;
   font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
-  min-height: 40px;
+  height: 40px;
   width: 100%;
-  overflow: hidden;
   border-bottom: 1px solid #00ab36;
   padding-left: 0;
   margin-bottom: 20px;
@@ -727,7 +725,7 @@ hr {
   height: auto;
 }
 .blocklist .top-tags {
-  margin-bottom: -10px;
+  margin-bottom: 0px;
 }
 .blocklist .tags {
   margin-left: 20px;
@@ -776,9 +774,8 @@ hr {
   text-align: center;
 }
 .teamlist .content .block .thumb img {
-  max-width: 160px;
-  max-height: 160px;
-  width: 80%;
+  width: 160px;
+  height: 160px;
 }
 .teamlist .content .block .details {
   float: left;
@@ -824,8 +821,7 @@ hr {
   text-align: center;
 }
 .bandlist .content .block .thumb img {
-  max-width: 180px;
-  width: 90%;
+  width: 180px;
 }
 .bandlist .content .block .details {
   float: left;
@@ -914,7 +910,6 @@ hr {
 }
 .article .details img {
   max-width: 720px;
-  width: 92%;
 }
 .article .share {
   margin-left: 5px;
@@ -1124,39 +1119,17 @@ p span {
   width: 350px;
   margin: 30px auto;
 }
-.downloadlistStyle-md .downloadlist .content-block .block {
-  height: 270px !important;
-  margin-bottom: 30px;
-}
-.downloadlistStyle-sm .downloadlist .content-block .block {
-  width: 300px;
-  height: 280px;
-}
 .bigLogo .logo {
   display: block;
 }
 .bigLogo .logo_small {
   display: none;
 }
-.bigLogo .search {
-  width: 140px;
-}
-.bigLogo .search .bt input {
-  margin-top: 6px;
-  width: 15px;
-}
 .smallLogo .logo {
   display: none;
 }
 .smallLogo .logo_small {
   display: block;
-}
-.smallLogo .search {
-  width: 110px;
-}
-.smallLogo .search .bt input {
-  margin-top: 8px;
-  width: 13px;
 }
 @media (min-width: 1367px) {
   .carousel {
@@ -1185,13 +1158,6 @@ p span {
   }
   .logo_small {
     display: none;
-  }
-  .search {
-    width: 140px;
-  }
-  .search .bt input {
-    margin-top: 6px;
-    width: 15px;
   }
   .inner-container .col-lg-9 {
     width: 70%;
@@ -1227,13 +1193,6 @@ p span {
   }
   .logo_small {
     display: none;
-  }
-  .search {
-    width: 140px;
-  }
-  .search .bt input {
-    margin-top: 6px;
-    width: 15px;
   }
   .inner-container .col-lg-9 {
     width: 70%;
@@ -1273,22 +1232,11 @@ p span {
     width: 46%;
     margin: 30px 2%;
   }
-  .downloadlist .content-block .block {
-    height: 270px !important;
-    margin-bottom: 30px;
-  }
   .logo {
     display: block;
   }
   .logo_small {
     display: none;
-  }
-  .search {
-    width: 140px;
-  }
-  .search .bt input {
-    margin-top: 6px;
-    width: 15px;
   }
 }
 @media (max-width: 991px) and (min-width: 900px) {
@@ -1334,13 +1282,6 @@ p span {
   }
   .logo_small {
     display: block;
-  }
-  .search {
-    width: 110px;
-  }
-  .search .bt input {
-    margin-top: 8px;
-    width: 13px;
   }
   .content-block a .block {
     width: 230px;
@@ -1396,17 +1337,6 @@ p span {
   .logo_small {
     display: block;
   }
-  .search {
-    width: 110px;
-  }
-  .search .bt input {
-    margin-top: 8px;
-    width: 13px;
-  }
-  .downloadlist .content-block .block {
-    width: 300px;
-    height: 280px;
-  }
   .content-block a .block {
     width: 230px;
   }
@@ -1439,22 +1369,11 @@ p span {
   .top .container {
     width: 100%;
   }
-  .downloadlist .content-block .block {
-    width: 300px;
-    height: 280px;
-  }
   .logo {
     display: none;
   }
   .logo_small {
     display: block;
-  }
-  .search {
-    width: 110px;
-  }
-  .search .bt input {
-    margin-top: 8px;
-    width: 13px;
   }
   .dg-container nav {
     width: 100px !important;

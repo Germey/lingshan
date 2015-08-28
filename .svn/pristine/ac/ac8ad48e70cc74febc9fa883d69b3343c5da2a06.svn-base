@@ -5,7 +5,7 @@
         <include file="public/nav_tab" />
         <include file="public/category_tags" />
         <div class="content-block row">
-            <article:lists name="page" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="6">
+            <article:lists name="page" category="$category['id']" ispage="true"  tag_id="$_GET['stid']" row="9">
                <div class="col-lg-4 col-md-6">
                     <a href="{$page['link']}">
                         <div class="block">

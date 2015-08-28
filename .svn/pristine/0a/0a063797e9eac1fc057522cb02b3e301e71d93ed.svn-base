@@ -180,7 +180,6 @@ hr {
 			float: left;
 			padding-top: 15px;
 			padding-right: 10px;
-			margin-left: 10px;
 			img {
 				width: 50px;
 				height: 50px;
@@ -550,9 +549,8 @@ hr {
 	ul {
 		font-size: 15px;
 		font-family: @title-font-family;
-		min-height: 40px;
+		height: 40px;
 		width: 100%;
-		overflow: hidden;
 		border-bottom: @border-green;
 		padding-left: 0;
 	    margin-bottom: 20px;
@@ -643,61 +641,15 @@ hr {
 .blocklist {
 	.content-block {
 		.block {
-			width: 330px;
-			height: 360px;
-			background-color: @white-a;
-			margin: 40px auto;
-			text-align: center;
-			transition:box-shadow 0.2s;
-			.thumb {
-				width: 100%;
-				margin-bottom: 10px;
-				img {
-					width: 100%;
-					height: 190px;
-				}
-			}
-			.title,.date,.brief {
-				padding: 5px 20px;
-			}
-			.title {
-				font-size: 15px;
-				font-weight: bold;
-				color: #555;
-				height: auto;
-				text-align: left;
-			}
-			.date {
-				text-align: right;
-				color: #999;
-			}
-			.brief {
-				height: 80px;
-				color: #666;
-				text-align: left;
-			}
+  			margin: 0px auto 30px auto;
 		}
 	}
+
 	.project a .block .title {
 		text-align: center;
 		height: auto;
 	}
-	.top-tags {
-		margin-bottom: -10px;
-	}
-	.tags {
-		margin-left: 20px;
-		margin-top: 5px;
-		text-align: left;
-		margin-bottom: -25px;
-		.icon-tag {
-			color: #666;
-			font-size: 13px;
-		}
-		a {
-			color: @theme-green;
-		}
-	}
+
 }
 .search-res {
 	.listfull {
@@ -737,9 +689,8 @@ hr {
 				padding: 20px 0;
 				text-align: center;
 				img {
-					max-width: 160px;
-					max-height: 160px;
-					width: 80%;
+					width: 160px;
+					height: 160px;
 				}
 			}
 			.details {
@@ -787,8 +738,7 @@ hr {
 				width: 20%;
 				text-align: center;
 				img {
-					max-width: 180px;
-					width: 90%;
+					width: 180px;
 				}
 			}
 			.details {
@@ -889,7 +839,6 @@ hr {
 		line-height: 26px;
 		img {
 			max-width: 720px;
-			width: 92%;
 		}
 	}
 	.share {
@@ -1174,31 +1123,12 @@ p span {
 		}
 	}
 }
-.downloadlistStyle-md {
-	.downloadlist .content-block .block {
-		height: 270px !important;
-		margin-bottom: 30px;
-	}
-}
-.downloadlistStyle-sm {
-	.downloadlist .content-block .block {
-		width: 300px;
-		height: 280px;
-	}
-}
 .bigLogo {
 	.logo {
 		display: block;
 	}
 	.logo_small {
 		display: none;
-	}
-	.search {
-		width: 140px;
-		.bt input {
-			margin-top: 6px;
-			width: 15px;
-		}
 	}
 }
 .smallLogo {
@@ -1207,13 +1137,6 @@ p span {
 	}
 	.logo_small {
 		display: block;
-	}
-	.search {
-		width: 110px;
-		.bt input {
-			margin-top: 8px;
-			width: 13px;
-		}
 	}
 }
 @media (min-width: 1367px) { 
@@ -1247,7 +1170,6 @@ p span {
 	.carouselStyle(400px);
 	.bannerStyle(300px);
 	.rightWightStyle-md;
-	.downloadlistStyle-md;
 	.bigLogo;
 }
 @media (max-width: 991px) and (min-width: 900px) {
@@ -1270,7 +1192,6 @@ p span {
 	.rightWightStyle-md;
 	.projectStyle;
 	.smallLogo;
-	.downloadlistStyle-sm;
 	.content-block a .block {
 		width: 230px;
 	}
@@ -1282,7 +1203,6 @@ p span {
 	.carouselStyle(300px);
 	.bannerStyle(260px);
 	.topBarStyle;
-	.downloadlistStyle-sm;
 	.smallLogo;
 	.projectStyle;
 	.rightWightStyle-sm;

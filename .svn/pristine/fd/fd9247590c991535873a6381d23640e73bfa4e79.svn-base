@@ -776,9 +776,8 @@ hr {
   text-align: center;
 }
 .teamlist .content .block .thumb img {
-  max-width: 160px;
-  max-height: 160px;
-  width: 80%;
+  width: 160px;
+  height: 160px;
 }
 .teamlist .content .block .details {
   float: left;

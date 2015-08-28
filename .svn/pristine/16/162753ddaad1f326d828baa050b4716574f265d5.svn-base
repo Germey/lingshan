@@ -22,15 +22,15 @@
                             <div class="article-info">
                                 <span class="muted">时间：{:substr($info['publish_time'],0,16)}</span>
                             </div>
-                            <div class="article-info pull-right">
+        <!--                     <div class="article-info pull-right">
                                 <if condition="$info['tags']">
-                                    <span><span class="glyphicon glyphicon-tag icon-tag" aria-hidden="true"></span>
+                                    <span><i title="标签" class="glyphicon glyphicon-tag"></i>
                                         <foreach name="info['tags']" item="t">
-                                            <a href="/category/{$category['id']}?stid={$t['tag_id']}">{$t['name']}</a>
+                                            <a href="/category/{$category['id']}?stid={$t['tag_id']}">{$t['name']}</a>&nbsp;&nbsp;
                                         </foreach>
                                     </span>
                                 </if>
-                            </div>
+                            </div> -->
                         </div>
                         <if condition="$info['summary']">
                             <div class="summary">
@@ -42,6 +42,7 @@
                         <div class="details">
                             {$info['content']}
                         </div>
+                        <br />
                     </div>
                 </div>
                 <div class="share">

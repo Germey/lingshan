@@ -9,28 +9,11 @@
                         <div class="info-head">
                             {$info['title']}
                         </div>
-                        <div class="article-infos">
-                            <div class="article-info">
-                                <if condition="$info['source_name']">
-                                    <span>来源：<a href="{$info['source_link']}" target="_blank">{$info['source_name']}</a></span>
-                                </if>
-                            </div>
-                            <div class="article-info">
-                                <if condition="$info['author_name']"><span class="muted">编辑：{$info['author_name']}</span>
-                                </if>
-                            </div>
-                            <div class="article-info">
-                                <span class="muted">时间：{:substr($info['publish_time'],0,16)}</span>
-                            </div>
-                            <div class="article-info pull-right">
-                                <if condition="$info['tags']">
-                                    <span><span class="glyphicon glyphicon-tag icon-tag" aria-hidden="true"></span>
-                                        <foreach name="info['tags']" item="t">
-                                            <a href="/category/{$category['id']}?stid={$t['tag_id']}">{$t['name']}</a>
-                                        </foreach>
-                                    </span>
-                                </if>
-                            </div>
+                        <div class="article-info">
+                            <if condition="$info['extend']['found_time']">
+                                <span>成立时间：</span>
+                                <span>{$info['extend']['found_time']}</span>
+                            </if>
                         </div>
                         <if condition="$info['summary']">
                             <div class="summary">
@@ -42,8 +25,15 @@
                         <div class="details">
                             {$info['content']}
                         </div>
+                        <if condition="$info['source_link']">
+                            <div class="more-details text-right">
+                                <a href="{$info['source_link']}" class="btn btn-primary"target="_blank"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 项目详情</a>
+                            </div>
+                        </if>
+                        <br />
                     </div>
                 </div>
+                <include file="public:widget_related_news" />
                 <div class="share">
                     <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
                     <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
@@ -52,9 +42,9 @@
             </div>
             <div class="col-lg-3 col-sm-12">
                 <div class="right-widget">
+                    <include file="public:widget_proj_logo" />
                     <include file="public:widget_donate_way" />
                     <include file="public:widget_lastest_donate" />
-                    <include file="public:widget_ads" />
                 </div>
             </div>
         </div>
