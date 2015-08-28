@@ -69,8 +69,8 @@
                             $pages = D("Content")->getPagesByTypeId($cat['id'],1,6);
                             if(!$pages) {
                                 // 子栏目中
-                                $pages = D("Content")->getPagesByTypeId($cat['id'],1,6, array('is_getting_childrens'=>true));
-
+                                $extra_condition['is_getting_childrens'] = 1;
+                                $pages = D("Content")->getPagesByTypeId($cat['id'],1,6, $extra_condition);
                             }
                         ?>
                         <div id="dg-container" class="wrap dg-container" name="{$cat['id']}">

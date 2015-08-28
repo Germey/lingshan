@@ -77,9 +77,7 @@
                     </if>
                     <include file="public:widget_donate_way" />
                     <include file="public:widget_lastest_donate" />
-                    <if condition="!($category['parent'][id] eq 53 or $category['parent']['parent'][id] eq 53)">
                     <include file="public:widget_ads" />
-                    </if>
                 </div>
             </div>
         </div>

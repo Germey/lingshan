@@ -16,7 +16,7 @@ a {
 	color: #333; 
 }
 a:hover, a:focus { 
-	color: #E0212A;
+	color: #E0212A; 
 	opacity: 0.9;
 	text-decoration: none;
 }
@@ -837,43 +837,24 @@ hr {
 		padding: 10px 0;
 		font-style: 15px;
 		line-height: 26px;
-		img {
-			max-width: 720px;
-		}
-	}
-	.share {
-		margin-left: 5px;
 	}
 	i {
 		margin-top: 4px;
 		margin-right: 5px;
-	}
-	.more-details {
-		a {
-			margin-bottom: 20px;
-		}
 	}
 	.related-article {
 		padding: 10px;
 		width: 100%;
 		margin: 20px 0;
 		.title {
-			font-size: 17px;
+			font-size: 20px;
 			color: @theme-green;
-			text-align: left;
-			width: 120px;
-			padding: 5px 0;
-			margin-bottom: 10px;
-			border-bottom: 3px solid #00ab36;
 		}
 		li {
 			list-style: none;
 			background: url('images/chevron_right_grey.png') no-repeat left center;
 			width: 100%;
 			padding: 5px 0 5px 16px;
-			span {
-				color: #999;
-			}
 		}
 	
 	}

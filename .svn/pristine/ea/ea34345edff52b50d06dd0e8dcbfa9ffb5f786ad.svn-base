@@ -7,7 +7,6 @@
 @carousel-height: 500px;
 @border: 1px solid #D7D7D7;
 @nav-height: 74px;
-@title-font-family: "Hiragino Sans GB","Microsoft Yahei",Arial,sans-serif;
 .container { 
 	padding: 0;
 }
@@ -23,9 +22,7 @@ a:hover, a:focus {
 .pagination {
 	margin: 0;
 }
-.btn {
-	font-family: @title-font-family;
-}
+
 .btn-primary {
   color: #fff;
   background-color: @theme-green;
@@ -188,7 +185,6 @@ hr {
 		.top_nav {
 			float: left;
 			width: 570px;
-			font-family: @title-font-family;
 			ul.nav {
 				margin-bottom: 0px;
 				& > li {
@@ -548,7 +544,6 @@ hr {
 	@border-white: 1px solid #FFF;
 	ul {
 		font-size: 15px;
-		font-family: @title-font-family;
 		height: 40px;
 		width: 100%;
 		border-bottom: @border-green;
@@ -822,7 +817,6 @@ hr {
 	.info-head {
 		// text-align: center;
 		font-size: 25px;
-		font-family: @title-font-family;
 		color: #00ab36;
 	}
 	.summary {
@@ -909,7 +903,6 @@ hr {
 .title {
 	text-align: center;
 	font-size: 24px;
-	font-family: @title-font-family;
 	padding: 10px 0;
 	.eng {
 		// font-family: "futuraicg";
@@ -1092,7 +1085,6 @@ p span {
 	    text-decoration: none;
 	    padding: 0;
 	    font-size: 17px;
-	    font-family: @title-font-family;
 	    border-bottom: 3px solid #00ab36;
 	    color: #00ab36;
 	    width: 110px;

@@ -1,0 +1,16 @@
+
+<div class="right-ads widget">
+	<!--
+	<div class="right-tab">更多内容</div>
+	-->
+	<?php $right_ads = D('Banner')->getBannerByName('right_ads'); ?>
+	<div class="details">
+		<foreach name="right_ads" item="one">
+			<div class="one">
+				<a href="{$one['link']}" target="_blank">
+					<img src="{:thumb($one['path'], 250, 0)}" alt="{$one['title']}">
+				</a>
+			</div>
+		</foreach>
+	</div>
+</div>

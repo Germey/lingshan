@@ -1,0 +1,12 @@
+<!-- 项目和基金的相关新闻 -->
+<?php 
+    $children_pages = $info['children_pages'];
+?>
+<if condition="$children_pages">
+    <div class="related-article">
+        <div class="title">相关新闻</div>
+        <foreach name="children_pages" item="one">
+            <li><a href="{$one['link']}">{:get_short($one['title'],36)}</a><span class="pull-right">{$one['publish_time']}</span></li>
+        </foreach>
+    </div>
+</if>

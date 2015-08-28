@@ -13,9 +13,6 @@ a:focus {
 .pagination {
   margin: 0;
 }
-.btn {
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
-}
 .btn-primary {
   color: #fff;
   background-color: #00ab36;
@@ -161,7 +158,6 @@ hr {
 .top .container .top_nav {
   float: left;
   width: 570px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
 }
 .top .container .top_nav ul.nav {
   margin-bottom: 0px;
@@ -557,7 +553,6 @@ hr {
 }
 .navigation ul {
   font-size: 15px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
   height: 40px;
   width: 100%;
   border-bottom: 1px solid #00ab36;
@@ -842,7 +837,6 @@ hr {
 }
 .article .info-head {
   font-size: 25px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
   color: #00ab36;
 }
 .article .summary {
@@ -925,7 +919,6 @@ hr {
 .title {
   text-align: center;
   font-size: 24px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
   padding: 10px 0;
 }
 .title .mid {
@@ -1046,7 +1039,6 @@ p span {
   text-decoration: none;
   padding: 0;
   font-size: 17px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
   border-bottom: 3px solid #00ab36;
   color: #00ab36;
   width: 110px;

@@ -1,0 +1,11 @@
+
+<div class="related widget">
+	<div class="right-tab">相关文章</div>
+    <div class="list-box">
+        <ul class="simple">
+          <article:lists name="one" category="$category['id']" ispage="false" row="6">
+              <li><a href="{$one['link']}">{:get_short($one['title'],36)}</a></li>
+          </article:lists>
+        </ul>
+    </div>
+</div>
