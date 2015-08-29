@@ -13,19 +13,8 @@ a:focus {
 .pagination {
   margin: 0;
 }
-.glyphicon {
-  top: 2px;
-}
-.pagination > li > a,
-.pagination > li > span {
-  color: #333;
-}
 .btn {
   font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
-  border-radius: 16px;
-  -o-border-radius: 16px;
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
 }
 .btn-primary {
   color: #fff;
@@ -91,7 +80,7 @@ hr {
   max-width: 1100px;
 }
 .inner-container .content-block .block {
-  background: #f4f4f4;
+  background: #f8f8f8;
   border: 1px solid #DDD;
 }
 .carousel {
@@ -99,7 +88,7 @@ hr {
 }
 .carousel .carousel-indicators {
   position: absolute;
-  bottom: 35px;
+  bottom: 15px;
   top: inherit;
   width: inherit;
   z-index: 5;
@@ -352,7 +341,7 @@ hr {
   width: 330px;
   height: 360px;
   background-color: #fefefe;
-  margin: 24px auto;
+  margin: 40px auto;
   text-align: center;
   transition: box-shadow 0.2s;
 }
@@ -434,8 +423,9 @@ hr {
   width: 40px;
 }
 .donate .content .support .details .one .btn-primary {
-  padding: 8px 20px;
-  font-size: 15px;
+  padding: 6px 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
   margin-left: 10px;
 }
 .donate-summary-block {
@@ -699,7 +689,7 @@ hr {
   width: 330px;
   height: 360px;
   background-color: #fefefe;
-  margin: 24px auto;
+  margin: 40px auto;
   text-align: center;
   transition: box-shadow 0.2s;
 }
@@ -744,47 +734,6 @@ hr {
 }
 .blocklist .top-tags {
   margin-bottom: -10px;
-  overflow: hidden;
-}
-.blocklist .top-tags .form-close {
-  height: 68px;
-}
-.blocklist .top-tags form {
-  overflow: hidden;
-}
-.blocklist .top-tags .tag-item {
-  float: left;
-  margin: 7px 0;
-}
-.blocklist .top-tags .tag-item a:hover {
-  background-color: #00ab36;
-}
-.blocklist .top-tags .close-open {
-  display: none;
-}
-.blocklist .top-tags .close-open .toggle {
-  cursor: pointer;
-  font-size: 14px;
-  padding-top: 8px;
-  padding-bottom: 3px;
-  margin-right: 10px;
-  color: #00ab36;
-  font-weight: normal;
-  text-shadow: none;
-  float: inherit;
-  opacity: 1;
-}
-.blocklist .top-tags .close-open .toggle:hover {
-  opacity: 0.8;
-}
-.blocklist .top-tags .close-open .toggle span {
-  color: #666;
-}
-.blocklist .top-tags .close-open .open {
-  display: block;
-}
-.blocklist .top-tags .close-open .close {
-  display: none;
 }
 .blocklist .tags {
   margin-left: 20px;
@@ -800,61 +749,25 @@ hr {
   color: #00ab36;
 }
 .search-res .listfull {
-  padding-top: 20px;
-}
-.search-res .listfull .box-title {
-  color: #333;
-  font-size: 18px;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #00ab36;
-  margin-bottom: 10px;
-}
-.search-res .listfull .box-title a {
-  color: #F25A43;
-}
-.search-res .listfull .box-title a:hover {
-  font-weight: bold;
-}
-.search-res .listfull .box-title-tip {
-  width: 0;
-  height: 0;
-  margin-left: 34px;
-  vertical-align: middle;
-  border-top: 4px solid #F25A43;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  text-align: center;
-  margin-top: 0px;
+  background-color: #FFF;
+  padding: 30px;
 }
 .search-res .list-content {
   padding: 20px 0;
-  border-bottom: 1px dashed #DDD;
 }
 .search-res .list-content .date {
-  font-size: 13px;
   float: right;
+  font-size: 14px;
 }
-a.label-tag {
+.search-res .list-content i {
+  margin: 4px 0 0 5px;
+}
+.label-tag {
   margin: 0 5px;
-  color: #666;
-  font-weight: normal;
-  background-color: #FFF;
-  border: 1px solid #999;
+  background-color: #BEBEBE;
 }
-a.label-tag:hover,
-a.label-tag:focus {
-  color: #666;
-  opacity: 0.9;
-}
-a.label-select {
+.label-select {
   background-color: #00ab36;
-  border: 1px solid #00ab36;
-  color: white;
-}
-a.label-select:hover,
-a.label-select:focus {
-  color: white;
 }
 .teamlist .content .block {
   overflow: hidden;
@@ -961,12 +874,6 @@ a.label-select:focus {
 .downloadlist .content-block .block .brief {
   text-align: center;
   padding: 10px;
-}
-.downloadlist .content-block .block .brief a {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
 }
 .article .container .content {
   padding: 0;

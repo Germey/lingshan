@@ -23,18 +23,8 @@ a:hover, a:focus {
 .pagination {
 	margin: 0;
 }
-.glyphicon {
-	top: 2px;
-}
-.pagination > li > a, .pagination > li > span {
-	color: #333;
-}
 .btn {
 	font-family: @title-font-family;
-	border-radius: 16px;
-	-o-border-radius: 16px;
-	-webkit-border-radius: 16px;
-	-moz-border-radius: 16px;
 }
 .btn-primary {
   color: #fff;
@@ -107,7 +97,7 @@ hr {
 	}
 	.content-block {
 		.block {
-			background: #f4f4f4;
+			background: #f8f8f8;
 			border: 1px solid #DDD;
 		}
 	}
@@ -117,7 +107,7 @@ hr {
 	height: @carousel-height;
 	.carousel-indicators {
 		position: absolute;
-		bottom: 35px;
+		bottom: 15px;
 		top: inherit;
 		width: inherit;
 		z-index: 5;
@@ -379,7 +369,7 @@ hr {
 			width: 330px;
 			height: 360px;
 			background-color: @white-a;
-			margin: 24px auto;
+			margin: 40px auto;
 			text-align: center;
 			transition:box-shadow 0.2s;
 			.thumb {
@@ -458,8 +448,9 @@ hr {
 				}
 
 				.btn-primary {
-				    padding: 8px 20px;
-				    font-size: 15px;
+				    padding: 6px 20px;
+				    font-size: 16px;
+				    letter-spacing: 2px;
 				    margin-left: 10px;					
 				}
 			}
@@ -655,7 +646,7 @@ hr {
 			width: 330px;
 			height: 360px;
 			background-color: @white-a;
-			margin: 24px auto;
+			margin: 40px auto;
 			text-align: center;
 			transition:box-shadow 0.2s;
 			.thumb {
@@ -699,47 +690,6 @@ hr {
 	}
 	.top-tags {
 		margin-bottom: -10px;
-		overflow: hidden;
-		.form-close {
-			height: 68px;
-		}
-		form {
-			overflow: hidden;
-		}
-		.tag-item {
-			float: left;
-			margin: 7px 0;
-			a:hover {
-				background-color: @theme-green;
-			}
-		}
-		.close-open {
-			display: none;
-			.toggle {
-				cursor: pointer;
-				font-size: 14px;
-				padding-top: 8px;
-				padding-bottom: 3px;
-				margin-right: 10px;
-				color: @theme-green;
-				font-weight: normal;
-				text-shadow: none;
-				float: inherit;
-				opacity: 1;
-				&:hover {
-					opacity: 0.8;
-				}
-				span {
-					color: #666;
-				}
-			}
-			.open {
-				display: block;
-			}
-			.close {
-				display: none;
-			}
-		}
 	}
 	.tags {
 		margin-left: 20px;
@@ -757,60 +707,27 @@ hr {
 }
 .search-res {
 	.listfull {
-		padding-top: 20px;
-		.box-title{
-		    color: #333;
-		    font-size: 18px;
-		    font-family: @title-font-family;
-		    padding-bottom: 5px;
-		    border-bottom: 2px solid @theme-green;
-		    margin-bottom: 10px;
-		}
-
-		.box-title a{color: #F25A43;}
-		.box-title a:hover{font-weight: bold;}
-
-		.box-title-tip {
-		    width: 0;
-		    height: 0;
-		    margin-left: 34px;
-		    vertical-align: middle;
-		    border-top: 4px solid #F25A43;
-		    border-right: 4px solid transparent;
-		    border-left: 4px solid transparent;
-		    text-align: center;
-		    margin-top: 0px;    
-		}
-
+		background-color: #FFF;
+		padding: 30px;
 	}
 	.list-content {
 		padding: 20px 0;
-		border-bottom: 1px dashed #DDD;
 		.date {
-			font-size: 13px;
 			float: right;
+			font-size: 14px;
+		}
+		i {
+			margin: 4px 0 0 5px;
 		}
 	}
 	
 }
-a.label-tag {
+.label-tag {
 	margin: 0 5px;
-	color: #666;
-	font-weight: normal;
-	background-color: #FFF;
-	border: 1px solid #999;
+	background-color: #BEBEBE;
 }
-a.label-tag:hover, a.label-tag:focus {
-	color: #666;
-	opacity: 0.9; 
-}
-a.label-select {
+.label-select {
 	background-color: @theme-green;
-	border: 1px solid @theme-green;
-	color: white;
-}
-a.label-select:hover, a.label-select:focus {
-	color: white;
 }
 .teamlist {
 	.content {
@@ -925,9 +842,6 @@ a.label-select:hover, a.label-select:focus {
 			.brief {
 				text-align: center;
 				padding: 10px;
-				a {
-					.borderRadius(2px);
-				}
 			}
 		}
 	}
