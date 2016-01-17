@@ -1,0 +1,51 @@
+<div class="widget widget-project">
+    <div class="text-center">
+        <a class="btn btn-danger" target="_blank" href="{:C('custom_goto_donate_link')}?donate_project_default={$info['inner_extend_1']}">
+            <span class="glyphicon glyphicon-heart"></span>
+            我要捐赠
+        </a>
+    </div>
+    <div class="clear"><br /></div>
+
+    <?php
+        $summary_data_url = C("custom_donate_summary_link") . '&items=total&project_id=' . $info['inner_extend_1'];
+        $_data = json_decode(file_get_contents($summary_data_url));
+        $total_amount = intval($_data->total->amount);
+        $total_count = intval($_data->total->count);
+        $start_date = substr($_data->total->min_donate_time, 0, 10);
+
+        $dividend = 1;
+        if($total_amount>100000000) {
+            $symbol = '亿';
+            $dividend = 100000000;
+        } elseif ($total_amount > 10000000) {
+            $sybol = '千万';
+            $dividend = 10000000;
+        } elseif ($total_amount > 1000000) {
+            $sybol = '百万';
+            $dividend = 1000000;
+        }
+    ?>
+    <table class="table table-noborder">
+        <tr>
+            <td>
+                <span class="label label-success" style="font-size: 13px;font-weight: normal;">
+                    <span class="glyphicon glyphicon-user"></span> 募捐人次：{$total_count}
+                </span>
+            </td>
+            <td class="text-right">
+                <span class="label label-success" style="font-size: 13px;font-weight: normal;">
+                    <span class="glyphicon glyphicon-jpy"></span> 募捐额：
+                    {:sprintf("%.2f", $total_amount/$dividend)}{$sybol}
+                    <!-- {:moneyit($total_amount,0)} -->
+                </span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<if condition="$total_amount">
+    <?php $lastest_projet_id = $info['inner_extend_1']; ?>
+    <include file="public:widget_lastest_donate" />
+    <p style="margin-top: -10px;font-size: 13px;"><span class="text-muted">起始日期：{$start_date}</span></p>
+</if>
